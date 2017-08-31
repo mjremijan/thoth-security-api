@@ -19,6 +19,12 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
+            <groupId>javax.security.enterprise</groupId>
+            <artifactId>javax.security.enterprise-api</artifactId>
+            <version>1.0-b11</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.5</version>
@@ -57,5 +63,7 @@
         </plugins>
         
     </build>
-    
+    <modules>
+        <module>01-security-api-embedded</module>
+    </modules>
 </project>

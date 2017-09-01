@@ -1,4 +1,4 @@
-package org.thoth.soteria.session;
+package org.thoth.jeesa.session;
 
 import java.util.Enumeration;
 import java.util.LinkedList;

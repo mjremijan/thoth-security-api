@@ -1,4 +1,4 @@
-package org.thoth.soteria.security.principal;
+package org.thoth.jeesa.security.principal;
 
 import java.security.Principal;
 import javax.enterprise.context.ApplicationScoped;

@@ -1,4 +1,4 @@
-package org.thoth.soteria.logger;
+package org.thoth.jeesa.logger;
 
 import java.io.File;
 import javax.enterprise.context.ApplicationScoped;

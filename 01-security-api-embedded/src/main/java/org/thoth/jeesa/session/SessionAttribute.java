@@ -1,4 +1,4 @@
-package org.thoth.soteria.session;
+package org.thoth.jeesa.session;
 
 public class SessionAttribute {
     String name, value;

@@ -1,4 +1,4 @@
-package org.thoth.soteria.application;
+package org.thoth.jeesa.application;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.faces.context.FacesContext;

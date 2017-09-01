@@ -10,6 +10,10 @@ Areas of Research
     to verify it's working.  Nothing actually protected.
   * Test URL: http://localhost:8080/security-api-embedded
 
+* **02-security-api-goodneighbor** - When the Security API code is running embedded witin a WAR, 
+    make sure only that WAR is protected and not every WAR deployed to the server.
+  * Test URL: http://localhost:8080/02-security-api-goodneighbor
+
 
 Enjoy!
 

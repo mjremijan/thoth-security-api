@@ -1,4 +1,4 @@
-package org.thoth.soteria.properties;
+package org.thoth.jeesa.properties;
 
 import java.io.IOException;
 import java.io.InputStream;

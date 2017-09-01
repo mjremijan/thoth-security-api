@@ -1,4 +1,4 @@
-package org.thoth.soteria.time;
+package org.thoth.jeesa.time;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

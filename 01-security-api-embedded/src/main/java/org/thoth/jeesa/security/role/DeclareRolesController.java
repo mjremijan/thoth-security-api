@@ -1,4 +1,4 @@
-package org.thoth.soteria.security.role;
+package org.thoth.jeesa.security.role;
 
 import java.util.Arrays;
 import java.util.List;

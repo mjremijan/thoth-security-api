@@ -1,4 +1,4 @@
-package org.thoth.soteria.lang;
+package org.thoth.jeesa.lang;
 
 import java.util.Map;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;

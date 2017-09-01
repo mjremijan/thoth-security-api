@@ -1,4 +1,4 @@
-package org.thoth.soteria.security.auth;
+package org.thoth.jeesa.security.authentication.mechanism;
 
 import java.io.StringWriter;
 import java.util.Enumeration;
@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Appender;
 import org.apache.log4j.Logger;
 import org.apache.log4j.WriterAppender;
-import org.thoth.soteria.lang.MyReflectionToStringBuilder;
+import org.thoth.jeesa.lang.MyReflectionToStringBuilder;
 
 @ApplicationScoped
 @Named(value = "testHttpAuthenticationMechanism")

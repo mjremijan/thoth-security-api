@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    template="../WEB-INF/template_index.xhtml">
+
+    <ui:define name="page_name">Index</ui:define>
+
+    <ui:define name="test_goals">
+        <p>
+            Can a <code>Principal</code> object be generated
+            from <code>HttpServletRequest</code>.  Both name and roles come from 
+                <code>HttpServletRequest</code>. 
+            The roles for the application are in <code>web.xml</code>.
+        </p>
+    </ui:define>
+
+    <ui:define name="test_results">
+        <p>
+            <b>Yes!</b>
+        </p>
+        <p>
+            Below in the <b>Principal/Role Information</b> section
+            where you can see both the <code>Principal</code> name
+            and a table showing if the principal has the those roles.  Submit
+            the form below to change the principal's name and roles.  After submitting
+            the form, the page will refresh and you'll see the 
+            <code>Principal</code> name update and the table of roles update.
+        </p>
+        <p>
+            It is important to note the valid roles for the application 
+            are specified in <code>web.xml</code>.  If you give the principal a
+            role that is not in <code>web.xml</code>, then for that role
+            <code>#isUserInRole()</code> will always return false.  Below
+            in the table you will see the <b>NOT_IN_WEBXML_ROLE</b> role.
+            Try assigning your principal this role - it won't work. It 
+            will always be false because <b>NOT_IN_WEBXML_ROLE</b> is 
+            not in <code>web.xml</code>.
+        </p>
+        
+        <h:form  prependId="false">
+            <h:panelGrid columns="2">
+                <h:outputLabel for="name">Principal Name:</h:outputLabel>
+                <h:inputText id="name" value="#{principalInput.name}"/>
+                <h:outputLabel for="roles">Roles (comma separated):</h:outputLabel>
+                <h:inputText id="roles" value="#{principalInput.roles}"/>
+            </h:panelGrid>
+            <h:commandButton value="Go" action="#{principalController.go}" />
+        </h:form>
+
+    </ui:define>
+
+</ui:composition>

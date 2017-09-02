@@ -26,5 +26,17 @@ Areas of Research
             a given name?
   * Test URL: http://localhost:8080/security-api-principal
 
+* **04-security-api-isuserinrole-webxml** - Can a Principal object be generated
+            from HttpServletRequest.  Both name and roles come from HttpServletRequest. 
+            The roles for the application are in web.xml.
+  * Test URL: http://localhost:8080/security-api-isuserinrole-webxml
+
+* **04-jaspic-isuserinrole-glassfishwebxml** - Generate a Principal object with ROLES from an HttpServletRequest. 
+            Application-specific, valid roles are in web.xml.  Application-specific
+            roles are mapped to user's groups in glassfish-web.xml
+  * Test URL: http://localhost:8080/jaspic-isuserinrole-glassfishwebxml
+
+
+
 Enjoy!
 

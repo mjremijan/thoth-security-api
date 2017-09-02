@@ -68,5 +68,6 @@
         <module>02-security-api-goodneighbor</module>
         <module>02-security-api-helloworld</module>
         <module>03-security-api-principal</module>
+        <module>04-security-api-isuserinrole-webxml</module>
     </modules>
 </project>

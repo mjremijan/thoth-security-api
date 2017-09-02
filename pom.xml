@@ -67,5 +67,6 @@
         <module>01-security-api-embedded</module>
         <module>02-security-api-goodneighbor</module>
         <module>02-security-api-helloworld</module>
+        <module>03-security-api-principal</module>
     </modules>
 </project>

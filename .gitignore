@@ -4,3 +4,5 @@
 /03-security-api-principal/target/
 /04-security-api-isuserinrole-webxml/target/
 /04-security-api-isuserinrole-glassfishwebxml/target/
+/05-security-api-isuserinrole-declareroles/target/
+/05-security-api-isuserinrole-glassfishwebxml/target/

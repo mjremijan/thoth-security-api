@@ -12,9 +12,9 @@
     <ui:define name="test_goals">
         <p>
             Can a <code>Principal</code> object be generated
-            from <code>HttpServletRequest</code>?  Both name and roles come from 
-                <code>HttpServletRequest</code>. 
-            The roles for the application are in <code>web.xml</code>.
+            from <code>HttpServletRequest</code>?  Both name and roles come from <code>HttpServletRequest</code>. 
+            The roles for the application are in <code>@DeclareRoles</code>.  No roles are
+            in <code>web.xml</code>.
         </p>
     </ui:define>
 
@@ -32,13 +32,14 @@
         </p>
         <p>
             It is important to note the valid roles for the application 
-            are specified in <code>web.xml</code>.  If you give the principal a
-            role that is not in <code>web.xml</code>, then for that role
+            are specified in <code>@DeclareRoles</code>.  There is
+            nothing in <code>web.xml</code>.  If you give the principal a
+            role that is not in <code>@DeclareRoles</code>, then for that role
             <code>#isUserInRole()</code> will always return false.  Below
-            in the table you will see the <b>NOT_IN_WEBXML_ROLE</b> role.
+            in the table you will see the <b>NOT_IN_DECLAREROLES_ROLE</b> role.
             Try assigning your principal this role - it won't work. It 
-            will always be false because <b>NOT_IN_WEBXML_ROLE</b> is 
-            not in <code>web.xml</code>.
+            will always be false because <b>NOT_IN_DECLAREROLES_ROLE</b> is 
+            not in <code>@DeclareRoles</code>.
         </p>
         
         <h:form  prependId="false">

@@ -13,8 +13,9 @@
         <p>
             Can a <code>Prinicpal</code> object be generated
             from <code>HttpServletRequet</code>?  Both name and <b>identity-management groups</b>
-            come from <code>HttpServletRequest</code>.  The application uses <b>application-specific
-                roles</b> in <code>web.xml</code>.  The <b>identity-management groups</b> are mapped to
+            come from <code>HttpServletRequest</code>.  The application uses <b>application-specific roles</b>
+            in <code>@DeclareRoles</code> - no roles are in <code>web.xml</code>!
+            The <b>identity-management groups</b> are mapped to
             <b>application-specific roles</b> in <code>glassfish-web.xml</code>.
         </p>
     </ui:define>
@@ -42,7 +43,7 @@
             <code>true</code> the application must have:
         </p>
         <ol>
-            <li>The <b>application-specific role</b> defined in web.xml</li>
+            <li>The <b>application-specific role</b> defined in <code>@DeclareRoles</code></li>
             <li><code>#isUserInRole(<b>role</b>)</code> must use the <b>application-specific role</b></li>
             <li><code>TestHttpAuthenticationMechanism.java</code> creates a <code>Principal</code> 
                 using the <b>identity-management groups</b></li>
@@ -57,7 +58,7 @@
                 <b>NOTE #1:</b> If you assign the <code>group_not_in_glassfish-web_xml</code> 
                 <b>identity-management group</b> to your <code>Principal</code>, 
                 the <code>#isUserInRole(<b>role</b>)</code> call will return <code>false</code>
-                because even though <code>TryMeRole</code> is in <code>web.xml</code>,
+                because even though <code>TryMeRole</code> is in <code>@DeclareRoles</code>,
                 there is no mapping of <code>TryMeRole</code> and <code>group_not_in_glassfish-web_xml</code>
                 in <code>glassfish-web.xml</code>.
             </p>
@@ -67,7 +68,7 @@
                 the <code>#isUserInRole(<b>role</b>)</code> call will return <code>false</code>
                 because even though <code>GROUP_TRY_ME</code> is mapped to <code>NotInWebXmlRole</code>
                 in <code>glassfish-web.xml</code>, the <code>NotInWebXmlRole</code> does not exist
-                in <code>web.xml</code>
+                in <code>@DeclareRoles</code>
             </p> 
         </blockquote>
         

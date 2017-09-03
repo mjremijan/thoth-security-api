@@ -38,6 +38,18 @@ Areas of Research
             application-specific roles in glassfish-web.xml.
   * Test URL: http://localhost:8080/04-security-api-isuserinrole-glassfishwebxml
 
+* **05-security-api-isuserinrole-declareroles** - Can a Principal object be generated
+            from HttpServletRequest?  Both name and roles come from HttpServletRequest. 
+            The roles for the application are in @DeclareRoles.  No roles are
+            in web.xml.
+  * Test URL: http://localhost:8080/05-security-api-isuserinrole-declareroles
+
+* **05-security-api-isuserinrole-glassfishwebxml** - Can a Prinicpal object be generated
+            from HttpServletRequet?  Both name and identity-management groups
+            come from HttpServletRequest.  The application uses application-specific
+            roles in @DeclareRoles - no roles are in web.xml! The identity-management groups are mapped to
+            application-specific roles in glassfish-web.xml.
+  * Test URL: http://localhost:8080/05-security-api-isuserinrole-glassfishwebxml
 
 
 Enjoy!

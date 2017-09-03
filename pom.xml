@@ -69,5 +69,6 @@
         <module>02-security-api-helloworld</module>
         <module>03-security-api-principal</module>
         <module>04-security-api-isuserinrole-webxml</module>
+        <module>04-security-api-isuserinrole-glassfishwebxml</module>
     </modules>
 </project>

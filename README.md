@@ -24,17 +24,19 @@ Areas of Research
 * **03-security-api-principal** - Can a Principal object be generated
             from HttpServletRequest?  No roles, just a Principal with 
             a given name?
-  * Test URL: http://localhost:8080/security-api-principal
+  * Test URL: http://localhost:8080/03-security-api-principal
 
 * **04-security-api-isuserinrole-webxml** - Can a Principal object be generated
-            from HttpServletRequest.  Both name and roles come from HttpServletRequest. 
+            from HttpServletRequest?  Both name and roles come from HttpServletRequest. 
             The roles for the application are in web.xml.
-  * Test URL: http://localhost:8080/security-api-isuserinrole-webxml
+  * Test URL: http://localhost:8080/04-security-api-isuserinrole-webxml
 
-* **04-jaspic-isuserinrole-glassfishwebxml** - Generate a Principal object with ROLES from an HttpServletRequest. 
-            Application-specific, valid roles are in web.xml.  Application-specific
-            roles are mapped to user's groups in glassfish-web.xml
-  * Test URL: http://localhost:8080/jaspic-isuserinrole-glassfishwebxml
+* **04-security-api-isuserinrole-glassfishwebxml** - Can a Prinicpal object be generated
+            from HttpServletRequet?  Both name and identity-management groups
+            come from HttpServletRequest.  The application uses application-specific
+            roles in web.xml.  The identity-management groups are mapped to
+            application-specific roles in glassfish-web.xml.
+  * Test URL: http://localhost:8080/04-security-api-isuserinrole-glassfishwebxml
 
 
 

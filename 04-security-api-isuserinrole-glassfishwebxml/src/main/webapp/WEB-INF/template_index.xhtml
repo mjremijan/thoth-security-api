@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"    
+    template="template.xhtml">
+    
+    <ui:define name="page_content">
+        <h1>Test Goals</h1>
+        <div id="content" class="left_content">
+            <ui:insert name="test_goals">test_goals</ui:insert>
+        </div>
+        
+        <h1>Test Results</h1>
+        <div id="content" class="left_content">
+            <ui:insert name="test_results">test_results</ui:insert>
+        </div>
+    </ui:define>
+        
+</ui:composition>

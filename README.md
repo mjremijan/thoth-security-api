@@ -54,5 +54,9 @@ Areas of Research
 * **06-security-api-sessionid** - Can JSESSIONID be created on the 1st request and then remain constant?
   * Test URL: http://localhost:8080/06-security-api-sessionid
 
+* **07-security-api-multiplerequests** - If request 'A' sets the principal, can I make requests 'B', 'C', and
+            'D' and maintain that principal across the requests?
+  * Test URL: http://localhost:8080/07-security-api-multiplerequests
+
 Enjoy!
 

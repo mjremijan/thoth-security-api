@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    template="../WEB-INF/template_index.xhtml">
+
+    <ui:define name="page_name">Index</ui:define>
+
+    <ui:define name="test_goals">
+        <p>
+            If request 'A' sets the <code>Principal</code>, can I make requests 'B', 'C', and
+            'D' and maintain that <code>Principal</code> across the requests?
+        </p>
+    </ui:define>
+
+    <ui:define name="test_results">
+        <p>
+            <b>Yes!</b>
+        </p>
+        <p>
+            In the EE 8 Security API, the <code>@AutoApplySession</code> annotation on the
+            <code>HttpAuthenticationMechanism</code> is what does this for you.  Once a
+            <code>Principal</code> is established, <code>@AutoApplySession</code> prevents
+            <code>HttpAuthenticationMechanism#validateRequest()</code> from being called
+            again.  
+        </p>
+        
+        <p>
+            <b>Try it out...</b>
+        </p>
+        <p>
+            1<sup>st</sup>, use the form below to set the <code>Prinicpal</code>.
+        </p>
+        <blockquote>
+            <h:form prependId="false">
+                <h:panelGrid columns="2">
+                    <h:outputLabel for="name">Principal Name:</h:outputLabel>
+                    <h:inputText id="name" value="#{principalInput.name}"/>
+
+                    <h:outputLabel for="identityManagementGroups">Identity-management groups<br/>(comma separated):</h:outputLabel>
+                    <h:inputText id="identityManagementGroups" value="#{principalInput.identityManagementGroups}" style="width:500px;"/>
+                </h:panelGrid>
+                <h:commandButton value="Go" action="#{principalController.go}" />
+            </h:form>
+        </blockquote>
+        <p>
+            2<sup>nd</sup>, browse to pages <h:link outcome="/public/b">B</h:link> and 
+            <h:link outcome="/public/c">C</h:link>.  When you go to these pages
+            you will see that the <code>Principal/Role Information</code> is maintained across the requests.
+        </p>
+        
+        <h:form style="display:inline!important; margin: 0; padding: 0;">
+            <p>
+                3<sup>rd</sup>, <h:commandLink value="logout" action="#{logoutController.logout}" />            
+                to invalidate the session.  Then you can try different 
+                values for the <code>Principal</code>.
+            </p>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

@@ -72,5 +72,6 @@
         <module>04-security-api-isuserinrole-glassfishwebxml</module>
         <module>05-security-api-isuserinrole-declareroles</module>
         <module>05-security-api-isuserinrole-glassfishwebxml</module>
+        <module>06-security-api-sessionid</module>
     </modules>
 </project>

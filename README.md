@@ -51,6 +51,8 @@ Areas of Research
             application-specific roles in glassfish-web.xml.
   * Test URL: http://localhost:8080/05-security-api-isuserinrole-glassfishwebxml
 
+* **06-security-api-sessionid** - Can JSESSIONID be created on the 1st request and then remain constant?
+  * Test URL: http://localhost:8080/06-security-api-sessionid
 
 Enjoy!
 

@@ -13,11 +13,12 @@
         <p>
             Can there be a servlet that's protected 
             which is accessible only by a certain <b>application-specific role</b>?  The servlet 
-            is protected by <code>&lt;security-constraint&gt;</code> in <code>web.xml</code>.  
+            is protected by <code>@ServletSecurity</code>.  
             The application uses 
-            <b>application-specific roles</b> in <code>web.xml</code>.  The 
+            <b>application-specific roles</b> in <code>@DeclareRoles</code>.  The 
             <b>identity-management groups</b> are 
             mapped to <b>application-specific roles</b> in <code>glassfish-web.xml</code>.
+            <code>web.xml</code> is essentially empty.
         </p>
     </ui:define>
 
@@ -47,8 +48,8 @@
             <code>TestHttpAuthenticationMechanism.java</code> uses the
             the <b>identity-management groups</b> when creating
             the <code>Principal</code>.  
-            <code>&lt;security-constraint&gt;</code> uses
-            the <b>application-specific roles</b> in <code>web.xml</code>.
+            <code>@ServletSecurity</code> uses
+            the <b>application-specific roles</b> in <code>@DeclareRoles</code>.
             Security works because <code>glassfish-web.xml</code> 
             maps everything together.
         </p>

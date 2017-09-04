@@ -58,11 +58,13 @@ Areas of Research
             'D' and maintain that principal across the requests?
   * Test URL: http://localhost:8080/07-security-api-multiplerequests
 
-* **08-jaspic-servlet-protected-annotations** - Can there be a servlet that's public which any group may access and
-            another servlet that's private which is accessible only by a specific 
-            identity management group? Everything is declared in annotations 
-            except for the identity-management groups in and `glassfish-web.xml`. 
-  * Test URL: http://localhost:8080/08-jaspic-servlet-protected-annotations
+* **08-security-api-servlet-protected-annotations** - Can there be a servlet that's protected 
+            which is accessible only by a certain application-specific role?  The servlet 
+            is protected by `@ServletSecurity`.  The application uses 
+            application-specific roles in `@DeclareRoles`.  The identity-management groups are 
+            mapped to application-specific roles in `glassfish-web.xml`. `web.xml` is 
+            essentially empty.
+  * Test URL: http://localhost:8080/08-security-api-servlet-protected-annotations
 
 * **08-security-api-servlet-protected-webxml** - Can there be a servlet that's protected 
             which is accessible only by a certain application-specific role?  The servlet 

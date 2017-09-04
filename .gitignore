@@ -9,3 +9,4 @@
 /06-security-api-sessionid/target/
 /07-security-api-multiplerequests/target/
 /08-security-api-servlet-protected-webxml/target/
+/08-security-api-servlet-protected-annotations/target/

@@ -15,7 +15,7 @@
             which is accessible only by a certain <b>application-specific role</b>?  The JSP 
             is protected by <code>&lt;security-constraint&gt;</code> in <code>web.xml</code>.  
             The application uses 
-            <b>application-specific roles</b> in <code>@DeclareRoles</code>.  The 
+            <b>application-specific roles</b> in <code>web.xml</code>.  The 
             <b>identity-management groups</b> are 
             mapped to <b>application-specific roles</b> in <code>glassfish-web.xml</code>.
         </p>
@@ -34,11 +34,21 @@
         </p>
 
         <p>
-            <p>
-                <h:outputLink value="#{request.contextPath}/executive/executive.jsp">
-                    Link to Executive JSP is forbidden...
-                </h:outputLink>
-            </p>
+            <h:outputLink value="#{request.contextPath}/executive/executive.jsp">
+                Link to Executive JSP is forbidden...
+            </h:outputLink>
+        </p>
+        
+        <p>
+            However, you have the <code>CustomerSupportRole</code> role. 
+            Therefore, clicking the following link to 
+            the <code>customersupport/customersupport.jsp</code> page
+            will be allowed.
+        </p>
+        <p>
+            <h:outputLink value="#{request.contextPath}/customersupport/customersupport.jsp">
+                Link to CustomerSupport JSP is allowed...
+            </h:outputLink>
         </p>
         <p>
             <b>Note</b>
@@ -48,18 +58,9 @@
             the <b>identity-management groups</b> when creating
             the <code>Principal</code>.  
             <code>&lt;security-constraint&gt;</code> uses
-            the <b>application-specific roles</b> in <code>@DeclareRoles</code>.
+            the <b>application-specific roles</b> in <code>web.xml</code>.
             Security works because <code>glassfish-web.xml</code> 
             maps everything together.
-        </p>
-        <p>
-            Unfortunately, you can't go 100% annotations.  A
-            <code>&lt;security-constraint&gt;</code> in <code>web.xml</code>
-            is still needed to protect the <code>executive.jsp</code>.  This
-            is because the <code>@ServletSecurity</code> only works on
-            a servlet class.  There is nothing to annotate on a JSP page!
-            So a JSP page is best protected with it's url-pattern 
-            defined in a <code>&lt;security-constraint&gt;</code> in <code>web.xml</code>.
         </p>
     </ui:define>
 

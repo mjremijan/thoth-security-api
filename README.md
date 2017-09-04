@@ -22,33 +22,33 @@ Areas of Research
   * Test URL: http://localhost:8080/02-security-api-helloworld
 
 * **03-security-api-principal** - Can a Principal object be generated
-            from HttpServletRequest?  No roles, just a Principal with 
+            from `HttpServletRequest`?  No roles, just a Principal with 
             a given name?
   * Test URL: http://localhost:8080/03-security-api-principal
 
 * **04-security-api-isuserinrole-webxml** - Can a Principal object be generated
-            from HttpServletRequest?  Both name and roles come from HttpServletRequest. 
-            The roles for the application are in web.xml.
+            from `HttpServletRequest`?  Both name and roles come from `HttpServletRequest`. 
+            The roles for the application are in `web.xml`.
   * Test URL: http://localhost:8080/04-security-api-isuserinrole-webxml
 
-* **04-security-api-isuserinrole-glassfishwebxml** - Can a Prinicpal object be generated
+* **04-security-api-isuserinrole-glassfishwebxml** - Can a `Prinicpal` object be generated
             from HttpServletRequet?  Both name and identity-management groups
-            come from HttpServletRequest.  The application uses application-specific
-            roles in web.xml.  The identity-management groups are mapped to
-            application-specific roles in glassfish-web.xml.
+            come from `HttpServletRequest`.  The application uses application-specific
+            roles in `web.xml`.  The identity-management groups are mapped to
+            application-specific roles in `glassfish-web.xml`.
   * Test URL: http://localhost:8080/04-security-api-isuserinrole-glassfishwebxml
 
 * **05-security-api-isuserinrole-declareroles** - Can a Principal object be generated
-            from HttpServletRequest?  Both name and roles come from HttpServletRequest. 
-            The roles for the application are in @DeclareRoles.  No roles are
-            in web.xml.
+            from `HttpServletRequest`?  Both name and roles come from `HttpServletRequest`. 
+            The roles for the application are in `@DeclareRoles`.  No roles are
+            in `web.xml`.
   * Test URL: http://localhost:8080/05-security-api-isuserinrole-declareroles
 
-* **05-security-api-isuserinrole-glassfishwebxml** - Can a Prinicpal object be generated
+* **05-security-api-isuserinrole-glassfishwebxml** - Can a `Prinicpal` object be generated
             from HttpServletRequet?  Both name and identity-management groups
-            come from HttpServletRequest.  The application uses application-specific
-            roles in @DeclareRoles - no roles are in web.xml! The identity-management groups are mapped to
-            application-specific roles in glassfish-web.xml.
+            come from `HttpServletRequest`.  The application uses application-specific
+            roles in `@DeclareRoles` - no roles are in `web.xml`! The identity-management groups are mapped to
+            application-specific roles in `glassfish-web.xml`.
   * Test URL: http://localhost:8080/05-security-api-isuserinrole-glassfishwebxml
 
 * **06-security-api-sessionid** - Can JSESSIONID be created on the 1st request and then remain constant?
@@ -57,6 +57,20 @@ Areas of Research
 * **07-security-api-multiplerequests** - If request 'A' sets the principal, can I make requests 'B', 'C', and
             'D' and maintain that principal across the requests?
   * Test URL: http://localhost:8080/07-security-api-multiplerequests
+
+* **08-jaspic-servlet-protected-annotations** - Can there be a servlet that's public which any group may access and
+            another servlet that's private which is accessible only by a specific 
+            identity management group? Everything is declared in annotations 
+            except for the identity-management groups in and `glassfish-web.xml`. 
+  * Test URL: http://localhost:8080/08-jaspic-servlet-protected-annotations
+
+* **08-security-api-servlet-protected-webxml** - Can there be a servlet that's protected 
+            which is accessible only by a certain application-specific role?  The servlet 
+            is protected by <security-constraint> in `web.xml`.  The application uses 
+            application-specific roles in `web.xml`.  The identity-management groups are 
+            mapped to application-specific roles in `glassfish-web.xml`.
+  * Test URL: http://localhost:8080/08-security-api-servlet-protected-webxml
+
 
 Enjoy!
 

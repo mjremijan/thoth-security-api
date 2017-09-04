@@ -73,6 +73,13 @@ Areas of Research
             mapped to application-specific roles in `glassfish-web.xml`.
   * Test URL: http://localhost:8080/08-security-api-servlet-protected-webxml
 
+* **09-security-api-jsp-protected-annotations** - Can there be a JSP that's protected 
+            which is accessible only by a certain application-specific role?  The JSP 
+            is protected by <security-constraint> in `web.xml`.  The application uses 
+            application-specific roles in `@DeclareRoles`.  The identity-management groups are 
+            mapped to application-specific roles in `glassfish-web.xml`.
+  * Test URL: http://localhost:8080/09-security-api-jsp-protected-annotations
+
 
 Enjoy!
 

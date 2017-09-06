@@ -78,5 +78,6 @@
         <module>08-security-api-servlet-protected-annotations</module>
         <module>09-security-api-jsp-protected-annotations</module>
         <module>09-security-api-jsp-protected-webxml</module>
+        <module>10-security-api-unprotected-to-protected</module>
     </modules>
 </project>

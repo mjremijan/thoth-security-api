@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://xmlns.jcp.org/jsf/html" 
+    xmlns:f="http://xmlns.jcp.org/jsf/core">    
+    <p>
+        <b>Principal Name: </b> #{principalController.name}
+    </p>
+    
+    <h:dataTable value="#{declareRolesController.roleMappings}" var="o"
+        styleClass="order-table"
+        headerClass="order-table-header"
+        rowClasses="order-table-odd-row,order-table-even-row">
+        
+        <h:column>
+            <!-- column header -->
+            <f:facet name="header">IDENTITY-MANAGEMENT GROUP</f:facet>
+            <!-- row record -->
+            #{o.identityManagementGroup}
+        </h:column>
+        
+        <h:column>
+            <!-- column header -->
+            <f:facet name="header">APPLICATION-SPECIFIC ROLE</f:facet>
+            <!-- row record -->
+            #{o.applicationSpecificRole}
+        </h:column>
+        
+        <h:column>
+            <!-- column header -->
+            <f:facet name="header">IN ROLE</f:facet>
+            <!-- row record -->
+            #{principalController.isUserInRole(o.applicationSpecificRole)}
+        </h:column>
+    </h:dataTable>
+</ui:composition>

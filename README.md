@@ -87,6 +87,10 @@ Areas of Research
             mapped to application-specific roles in `glassfish-web.xml`.
   * Test URL: http://localhost:8080/09-security-api-jsp-protected-annotations
 
+* **10-security-api-unprotected-to-protected** - If the application has a public 
+            servlet that attempts to forward to either a protected servlet or JSP, 
+            will the forward request be denied?
+  * Test URL: http://localhost:8080/10-security-api-unprotected-to-protected
 
 Enjoy!
 

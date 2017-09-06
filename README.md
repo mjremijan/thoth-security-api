@@ -92,5 +92,11 @@ Areas of Research
             will the forward request be denied?
   * Test URL: http://localhost:8080/10-security-api-unprotected-to-protected
 
+* **11-security-api-get-cdi-bean-identitystorehandler** - When I get to the important code (the code I write to create
+            the Principal and groups) can I use CDI to get an
+            instance of some object which will help me get the principal 
+            and group information?
+  * Test URL: http://localhost:8080/11-security-api-get-cdi-bean-identitystorehandler
+
 Enjoy!
 

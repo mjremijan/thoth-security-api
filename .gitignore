@@ -13,3 +13,5 @@
 /09-security-api-jsp-protected-annotations/target/
 /09-security-api-jsp-protected-webxml/target/
 /10-security-api-unprotected-to-protected/target/
+/11-security-api-get-cdi-bean/target/
+/11-security-api-get-cdi-bean-identitystorehandler/target/

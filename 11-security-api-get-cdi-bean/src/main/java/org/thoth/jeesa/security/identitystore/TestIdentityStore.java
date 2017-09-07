@@ -18,7 +18,7 @@ public class TestIdentityStore implements IdentityStore {
 
     public CredentialValidationResult validate(TestCredential testCredential) {
         log.info("ENTER #validate()");
-        
+
         if (testCredential.compareTo("security-api-user")) {
             return new CredentialValidationResult(
                   testCredential.getCaller()

@@ -79,6 +79,6 @@
         <module>09-security-api-jsp-protected-annotations</module>
         <module>09-security-api-jsp-protected-webxml</module>
         <module>10-security-api-unprotected-to-protected</module>
-        <module>11-security-api-get-cdi-bean-identitystorehandler</module>
+        <module>11-security-api-get-cdi-bean</module>
     </modules>
 </project>

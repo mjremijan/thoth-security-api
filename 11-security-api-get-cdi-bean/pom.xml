@@ -7,9 +7,9 @@
         <version>1.0.0.0-SNAPSHOT</version>
     </parent>
     
-    <artifactId>11-security-api-get-cdi-bean-identitystorehandler</artifactId>
+    <artifactId>11-security-api-get-cdi-bean</artifactId>
     <packaging>war</packaging>
-    <name>thoth-security-api: 11-security-api-get-cdi-bean-identitystorehandler</name>
+    <name>thoth-security-api: 11-security-api-get-cdi-bean</name>
     
     <build>
         <finalName>${project.artifactId}</finalName>

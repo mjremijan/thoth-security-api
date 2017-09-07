@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    template="../WEB-INF/template_index.xhtml">
+
+    <ui:define name="page_name">Index</ui:define>
+
+    <ui:define name="test_goals">
+        <p>
+            When I get to the important code 
+            (the code I write to create
+            the <code>Principal</code> and groups) can I use <b>CDI</b> to get an
+            instance of some object which will help me get the principal 
+            and group information?
+        </p>
+    </ui:define>
+
+    <ui:define name="test_results">
+        <p>
+            <b>Yes!</b>
+        </p>
+        <p>
+            Java EE Security API is a 1<sup>st</sup> class CDI citizen.  So
+            CDI can definately be used.
+        </p>
+        
+        <p>
+            In this example, <code>TestHttpAuthenticationMechanism</code> uses...
+        </p>
+        
+        <blockquote>
+            <p><code>@Inject</code><br/>
+               <code>private IdentityStoreHandler identityStoreHandler;</code>
+            </p>
+        </blockquote>
+        
+        <p>
+            ...to inject an <code>IdentityStoreHandler</code>.  The 
+            <code>IdentityStoreHandler</code> is a Java EE Security API
+            class designed to help you get principal and role information.
+        </p>
+        
+        <p>
+            Below you can see a snipping from the log file (keep reloading
+            this page to see the log file update) which shows
+            <code>TestHttpAuthenticationMechanism</code> running and
+            the <code>IdentityStoreHandler</code> being injected.
+        </p>
+        
+        <blockquote>
+            <pre style="font-family:monospace; overflow:scroll; border: 1px solid black;">#{testHttpAuthenticationMechanism.buffer}</pre>
+        </blockquote>
+    </ui:define>
+
+</ui:composition>

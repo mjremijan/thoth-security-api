@@ -17,3 +17,4 @@
 /11-security-api-get-cdi-bean-identitystorehandler/target/
 /12-security-api-ejb-integration/target/
 /13-security-api-wrapping-request-doesnt-work/target/
+/14-security-api-jsf-page-protected-webxml/target/

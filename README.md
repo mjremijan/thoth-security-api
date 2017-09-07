@@ -99,14 +99,21 @@ Areas of Research
             and group information?
   * Test URL: http://localhost:8080/11-security-api-get-cdi-bean-identitystorehandler
 
-* **12-security-api-ejb-integration** - If I have an EJB which is protected by @RolesAllowed,
+* **12-security-api-ejb-integration** - If I have an EJB which is protected by `@RolesAllowed`,
             will an EJB method call fail if I don't have that role?
             Will an EJB method call succeed if I do have that role?
   * Test URL: http://localhost:8080/12-security-api-ejb-integration
 
 * **13-security-api-wrapping-request-doesnt-work** - Does proxying the 
-            HttpServletRequest with a @WebFilter work just as well?
+            `HttpServletRequest` with a `@WebFilter` work just as well?
   * Test URL: http://localhost:8080/13-security-api-wrapping-request-doesnt-work
+
+* **14-security-api-jsf-page-protected-webxml** - Can there be a JSF page that's protected 
+            which is accessible only by a certain application-specific role?  The JSF 
+            is protected by `<security-constraint>` in `web.xml`.  The application uses 
+            application-specific roles in `@DeclareRoles`.  The identity-management groups are 
+            mapped to application-specific roles in `glassfish-web.xml`.
+  * Test URL: http://localhost:8080/14-security-api-jsf-page-protected-webxml
 
 * **XX-one-identitystorehandler**
 

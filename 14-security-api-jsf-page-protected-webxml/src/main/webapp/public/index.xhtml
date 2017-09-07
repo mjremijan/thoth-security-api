@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    template="../WEB-INF/template.xhtml">
+
+    <ui:define name="page_name">Index</ui:define>
+    
+    <ui:define name="test_goals">
+        <p>
+            Can there be a JSF page that's protected 
+            which is accessible only by a certain application-specific role?  The JSF 
+            is protected by <code>&lt;security-constraint&gt;</code> in 
+            <code>web.xml</code>.  The application uses 
+            application-specific roles in <code>@DeclareRoles</code>.  
+            The identity-management groups are 
+            mapped to application-specific roles in <code>glassfish-web.xml</code>.
+        </p>
+    </ui:define>
+    
+    <ui:define name="test_results">
+        <p>
+            <b>Yes!</b>
+        </p>
+        <p>
+            This page is <code>/public/index.xhtml</code> and there are no
+            security settings in <code>web.xml</code> for this directory.
+            So you can see this page fine.
+        </p>
+        <p>
+            The link below is to <code>/executive/index.xhtml</code>.
+            The <code>/executive</code> directory is protected by the 
+            <code>ExecutiveRole</code> role. So, if you click it, you'll get
+            the standard <code>HTTP Status 403 - Forbidden</code> page.
+        </p>
+        <p>
+            <h:link value="Executive page" outcome="/executive/index" />
+        </p>
+        
+        <p>
+            The link below is to <code>/customersupport/index.xhtml</code>.
+            The <code>/customersupport</code> directory is protected by the 
+            <code>CustomerSupportRole</code> role. You have this role, so
+            you should be able to access it with no problems.
+        </p>
+        <p>
+            <h:link value="Customer Support page" outcome="/customersupport/index" />
+        </p>
+    </ui:define>
+    
+    <ui:define name="research_references">
+        <p>
+            mkyong.  (2010, October 20).  JSF 2 dataTable Example.  Retrieved from 
+            <a href="https://www.mkyong.com/jsf2/jsf-2-datatable-example/">
+                https://www.mkyong.com/jsf2/jsf-2-datatable-example/
+            </a>
+        </p>
+        <p>
+            mkyong.  (2010, November 13).  4 ways to pass parameter from JSF page to backing bean.  Retrieved from 
+            <a href="https://www.mkyong.com/jsf2/4-ways-to-pass-parameter-from-jsf-page-to-backing-bean/">
+                https://www.mkyong.com/jsf2/4-ways-to-pass-parameter-from-jsf-page-to-backing-bean/
+            </a>
+        </p>
+        <p>
+            BalusC.  (2013, January 18).  boolean properties starting with "is" does not work.  Retrieved from 
+            <a href="https://stackoverflow.com/questions/14400222/boolean-properties-starting-with-is-does-not-work">
+                https://stackoverflow.com/questions/14400222/boolean-properties-starting-with-is-does-not-work
+            </a>
+        </p>
+        <p>
+            Thomas, D.  (2012, September 23).  CSS - greater than selector - select items greater than N.  Retrieved from 
+            <a href="https://stackoverflow.com/questions/12554098/css-greater-than-selector-select-items-greater-than-n">
+                https://stackoverflow.com/questions/12554098/css-greater-than-selector-select-items-greater-than-n
+            </a>
+        </p>
+        <p>
+            BalusC.  (2013, September 18).  Create a link to a JSF page in a subfolder.  Retrieved from 
+            <a href="https://stackoverflow.com/questions/18868939/create-a-link-to-a-jsf-page-in-a-subfolder">
+                https://stackoverflow.com/questions/18868939/create-a-link-to-a-jsf-page-in-a-subfolder
+            </a>
+        </p>
+    </ui:define>
+    
+    
+    
+
+</ui:composition>

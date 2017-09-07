@@ -99,6 +99,14 @@ Areas of Research
             and group information?
   * Test URL: http://localhost:8080/11-security-api-get-cdi-bean-identitystorehandler
 
+* **12-security-api-ejb-integration** - If I have an EJB which is protected by @RolesAllowed,
+            will an EJB method call fail if I don't have that role?
+            Will an EJB method call succeed if I do have that role?
+  * Test URL: http://localhost:8080/12-security-api-ejb-integration
+
+* **13-security-api-wrapping-request-doesnt-work** - Does proxying the 
+            HttpServletRequest with a @WebFilter work just as well?
+  * Test URL: http://localhost:8080/13-security-api-wrapping-request-doesnt-work
 
 * **XX-one-identitystorehandler**
 

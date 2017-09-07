@@ -1,4 +1,4 @@
-package org.thoth.jeesa.application;
+package org.thoth.jeesa.logout;
 
 import java.io.IOException;
 import javax.enterprise.context.ApplicationScoped;
@@ -15,6 +15,7 @@ public class LogoutController {
 
     public LogoutController() {
     }
+
 
     public void logout() throws IOException {
         log.info("ENTER #logout()");

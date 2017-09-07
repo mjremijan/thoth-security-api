@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    template="../WEB-INF/template_index.xhtml">
+
+    <ui:define name="page_name">Index</ui:define>
+
+    <ui:define name="test_goals">
+        <p>
+            If I have an EJB which is protected by @RolesAllowed,
+            will an EJB method call fail if I don't have that role?
+            Will an EJB method call succeed if I do have that role?
+        </p>
+    </ui:define>
+
+    <ui:define name="test_results">
+        <p>
+            <b>Yes!</b>
+        </p>
+        <p>
+            Here is a link to the <code>GuestController</code>.  The <code>GuestController</code>
+            is publicly available with no security.  However, a developer 
+            accidentally injected the <code>ExecutiveEjb</code>.  Luckily 
+            <code>ExecutiveEjb</code> is protected 
+            by <code>@RolesAllowed({"ExecutiveRole"})</code> so you won't be
+            able to access something you shouldn't.
+        </p>
+        <h:form style="display:inline!important; margin: 0; padding: 0;">
+            <p>
+                Try this link:  
+                <h:commandLink action="#{guestController.someAction}">
+                    You will get an <code>javax.ejb.EJBAccessException</code> because you 
+                    do not have the <code>ExecutiveRole</code> role.
+                </h:commandLink>
+            </p>
+        </h:form>
+        
+        <p>
+            Here is a link to the <code>SalaryEmployeeController</code>.  
+            The <code>SalaryEmployeeController</code>
+            is publicly available with no security.  However, the 
+            <code>SalaryEmployeeEjb</code> is protected by
+            <code>@RolesAllowed({"SalaryEmployeeRole"})</code>.  You 
+            have the <code>SalaryEmployeeRole</code> so access is allowed.
+        </p>
+        <h:form style="display:inline!important; margin: 0; padding: 0;">
+            <p>
+                Try this link:  
+                <h:commandLink action="#{salaryEmployeeController.getNumberOfVacationDays}">
+                    Find out the number of vacation days salary employees get. You
+                    are allowed to know this information because you have the
+                    <code>SalaryEmployeeRole</code> role.
+                </h:commandLink>
+            </p>
+            <h:panelGroup layout="block" id="numberofvacationdays" rendered="#{salaryEmployeeInformation.numberOfVacationDays!=null}">
+                <p>
+                    Number of vacation days = <h:outputText value="#{salaryEmployeeInformation.numberOfVacationDays}" />
+                </p>
+            </h:panelGroup>
+        </h:form>
+
+    </ui:define>
+
+</ui:composition>

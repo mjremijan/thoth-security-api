@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    template="../WEB-INF/template_index.xhtml">
+
+    <ui:define name="page_name">Index</ui:define>
+    
+    <ui:define name="test_goals">
+        <p>
+            Can I create my own custom <code>MyPrincipal</code> object?
+            The ideas is the custom <code>MyPrincipal</code> object can contain more information
+            about the user whose logged in than a normal `Principal` object.  In addition,
+            can the <code>MyPrincipal#toString()</code> method be 
+            overloaded to return a JSON representation of the principal data?  This way,
+            as features are developed, code doesn't need to typecast and be 
+            coupled to the <code>MyPrincipal</code> object.  Instead, features can use the 
+            JSON representation to build their own object to use internally.
+        </p>
+    </ui:define>
+    
+    <ui:define name="test_results">
+        <p>
+            <b>Yes!</b>
+        </p>        
+        <p>
+            Second, look at the <b>Principal/Role Information</b> section below :)
+        </p>
+        <p>
+            For this test, I did an override of the <code>MyPrincipal#toString()</code>
+            method to return a JSON representation of the username and the list
+            of roles.  The advantage of doing it like this is through polymorphism the 
+            application does not need to know the <code>MyPrincipal</code> object
+            exists or have to include it in the project dependencies for typecasting.
+            If a project wants to get a list of the roles, the project can call
+            the <code>MyPrincipal#toString()</code> and parse the JSON in any
+            way it likes.  This drastically reduces coupling to the 
+            security implementation but gets around some of the shortcomings of the
+            <code>Principal</code> interface.
+        </p>
+    </ui:define>
+    
+    <ui:define name="page_references">
+        <p>None</p>
+    </ui:define>
+    
+</ui:composition>

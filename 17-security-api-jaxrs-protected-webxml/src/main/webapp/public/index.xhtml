@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    template="../WEB-INF/template_index.xhtml">
+
+    <ui:define name="page_name">Index</ui:define>
+    
+    <ui:define name="test_goals">
+        <p>
+            Can there be a JAX-RS client call that's protected 
+            which is accessible only by a certain application-specific role?
+            The JAX-RS client 
+            is protected by <code>&lt;security-constraint&gt;</code> in <code>web.xml</code>
+            (without the use of standard EJBs or proprietary Jersey code).  
+            The application uses 
+            application-specific roles in <code>@DeclareRoles</code>.  The identity-management groups are 
+            mapped to application-specific roles in <code>glassfish-web.xml</code>.
+        </p>
+    </ui:define>
+    
+    <ui:define name="test_results">
+        <p>
+            <b>Yes!</b>
+        </p>
+        <p>Let's look at the customer support REST resource first.</p>
+        <blockquote>
+            <p>
+                1st, the JAX-RS context was configured with <code>@ApplicationPath("/rest")</code>. So
+                all REST calls start with <code>/rest</code>.
+            </p>
+            <p>
+                2nd, a JAX-RS <code>CustomerSupportResource</code> is created. The class-level is configured
+                with <code>@Path("customersupport")</code> then at the method-level it's <code>@Path("help")</code>.
+            </p>
+            <p>
+                Putting all this configuration together results in a URL that looks like:
+            </p>
+            <blockquote>
+                <p><code>#{request.contextPath}/rest/customersupport/help"</code></p>
+            </blockquote>
+            <p>
+                3rd, the <code>web.xml</code> got a <code>&lt;security-constraint&gt;</code>
+                with a <code>&lt;url-pattern&gt;/rest/customersupport/*&lt;/url-pattern&gt;</code>
+            </p>
+            <p>
+                Finally, the link below tests everything.  Because you have the <code>CustomerSupportRole</code>
+                role, you are able to access this REST resource:
+            </p>
+            <p>
+                <h:outputLink value="#{request.contextPath}/rest/customersupport/help">
+                    Call good :) Customer support help REST resource...you have CustomerSupportRole
+                </h:outputLink>
+            </p>
+        </blockquote>
+        <p>
+            Now let's look the executive REST resource.
+        </p>
+        <blockquote>
+            <p>
+                1st, the JAX-RS context was configured with <code>@ApplicationPath("/rest")</code>. So
+                all REST calls start with <code>/rest</code>.
+            </p>
+            <p>
+                2nd, a JAX-RS <code>ExecutiveResource</code> is created. The class-level is configured
+                with <code>@Path("executive")</code> then at the method-level it's <code>@Path("contract")</code>.
+            </p>
+            <p>
+                Putting all this configuration together results in a URL that looks like:
+            </p>
+            <blockquote>
+                <p><code>#{request.contextPath}/rest/executive/contract"</code></p>
+            </blockquote>
+            <p>
+                3rd, the <code>web.xml</code> got a <code>&lt;security-constraint&gt;</code>
+                with a <code>&lt;url-pattern&gt;/rest/executive/*&lt;/url-pattern&gt;</code>
+            </p>
+            <p>
+                Finally, the link below tests everything.  Because you do <b>not</b> have
+                the <code>ExecutiveRole</code>
+                role, you aren <b>not</b> able to access this REST resource:
+            </p>
+            <p>
+                <h:outputLink value="#{request.contextPath}/rest/executive/contract">
+                    Call bad :( Executive contract REST resource...you do NOT have ExecutiveRole
+                </h:outputLink>
+            </p>
+        </blockquote>
+    </ui:define>
+        
+</ui:composition>

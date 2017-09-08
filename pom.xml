@@ -87,5 +87,6 @@
         <module>16-security-api-jsf-ajax-protected-webxml</module>
         <module>17-security-api-jaxrs-protected-ejb-annotations</module>
         <module>17-security-api-jaxrs-protected-jersey-annotations</module>
+        <module>17-security-api-jaxrs-protected-webxml</module>
     </modules>
 </project>

@@ -162,6 +162,15 @@ Areas of Research
             mapped to application-specific roles in `glassfish-web.xml`.
   * Test URL: http://localhost:8080/17-security-api-jaxrs-protected-webxml
 
+* **18-security-api-contexts-in-each-major-technology** - 
+How do you get the Principle from each major technology?
+  * JSP
+  * Servlet
+  * EJB
+  * JSF
+  * JAX-RS
+  * Test URL: http://localhost:8080/18-security-api-contexts-in-each-major-technology
+
 * **XX-one-identitystorehandler**
 
 * **XX-multiple-identitystorehandlers**

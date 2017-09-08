@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    template="../WEB-INF/template.xhtml">
+
+    <ui:define name="page_name">Principal EJB</ui:define>
+        
+    <ui:define name="page_content">
+        <h1>Test Results</h1>
+        <div id="content" class="left_content">
+            <p>
+                <code>
+                @Resource<br/>
+                private SessionContext ctx;
+                </code>
+            </p>
+            <p>
+                <code>Principal p = ctx.getCallerPrincipal()</code>
+            </p>
+            <p>
+                <b>Principal name:</b> "#{principalEjbController.prinicpalName}"
+            </p>
+            <p>
+                Principal created by TestHttpAuthenticationMechanism.java
+            </p>
+        </div>
+    </ui:define>
+</ui:composition>

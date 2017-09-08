@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    template="../WEB-INF/template_index.xhtml">
+
+    <ui:define name="page_name">Index</ui:define>
+    
+    <ui:define name="test_goals">
+        <p>
+            How do you get the Principle from each major technology?
+            <ul>
+                <li>JSP</li>
+                <li>Servlet</li>
+                <li>EJB</li>
+                <li>JSF</li>
+                <li>JAX-RS</li>
+            </ul>
+        </p>
+    </ui:define>
+    
+    <ui:define name="test_results">
+        <p>
+            <b>JSP</b>
+        </p>
+        <blockquote>
+            <p>
+                <code>&lt;% Principal p = request.getUserPrincipal(); %&gt;</code>
+            </p>
+            <p>
+                <h:outputLink value="#{request.contextPath}/public/principal-jsp.jsp">
+                    Try JSP page...
+                </h:outputLink>
+            </p>
+        </blockquote>
+        
+        <p>
+            <b>Servlet</b>
+        </p>
+        <blockquote>
+            <p>
+                <code>Principal p = ((HttpServletRequest)request).getUserPrincipal();</code>
+            </p>
+            <p>
+                <h:outputLink value="#{request.contextPath}/public/principal/servlet">
+                    Try Servlet...
+                </h:outputLink>
+            </p>
+        </blockquote>
+        
+        <p>
+            <b>EJB</b>
+        </p>
+        <blockquote>
+            <p>
+                <code>
+                @Resource<br/>
+                private SessionContext ctx;
+                </code>
+            </p>
+            <p>
+                <code>Principal p = ctx.getCallerPrincipal()</code>
+            </p>
+            <p>
+                <h:link outcome="/public/principal-ejb">Try EJB...</h:link>
+            </p>
+        </blockquote>
+        
+        
+        <p>
+            <b>JSF</b>
+        </p>
+        <blockquote>
+            <p>
+                <code>
+                Principal principal<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;= FacesContext.getCurrentInstance().getExternalContext().getUserPrincipal();
+                </code>
+            </p>
+            <p>
+                <h:link outcome="/public/principal-jsf">Try JSF...</h:link>
+            </p>
+        </blockquote>
+        
+        
+        <p>
+            <b>JAX-RS</b>
+        </p>
+        <blockquote>
+            <p>
+                <code>
+                public String getPrincipalName(<br/>
+                &nbsp;&nbsp;@Context SecurityContext securityContext) {<br/>
+                }
+                </code>
+            </p>
+            <p>
+                <h:outputLink value="#{request.contextPath}/rest/principal">
+                    Try JAX-RS...
+                </h:outputLink>
+            </p>
+        </blockquote>
+        
+    </ui:define>
+        
+</ui:composition>

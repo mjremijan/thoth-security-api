@@ -88,5 +88,6 @@
         <module>17-security-api-jaxrs-protected-ejb-annotations</module>
         <module>17-security-api-jaxrs-protected-jersey-annotations</module>
         <module>17-security-api-jaxrs-protected-webxml</module>
+        <module>18-security-api-contexts-in-each-major-technology</module>
     </modules>
 </project>

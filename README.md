@@ -181,9 +181,12 @@ How do you get the Principle from each major technology?
             JSON representation to build their own object to use internally.
   * Test URL: http://localhost:8080/20-security-api-customprincipal-web
 
-* **XX-one-identitystorehandler**
+* **21-security-api-identitystorehandler** - Can I create my own 
+        `IdentityStore`, `Credential`, and `Principal` and have
+        `IdentityStoreHandler` validate the request?
+    * Test URL: http://localhost:8080/21-security-api-identitystorehandler
 
-* **XX-multiple-identitystorehandlers**
+* **XX-multiple-identitystores**
 
 pom.xml
 package rename

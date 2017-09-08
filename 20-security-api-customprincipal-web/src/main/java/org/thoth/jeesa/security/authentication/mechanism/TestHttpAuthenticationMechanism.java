@@ -13,7 +13,7 @@ import javax.security.enterprise.authentication.mechanism.http.HttpMessageContex
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
-import org.thoth.jeesa.security.MyPrincipal;
+import org.thoth.jeesa.security.principal.MyPrincipal;
 
 @ApplicationScoped
 @Named(value = "testHttpAuthenticationMechanism")

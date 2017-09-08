@@ -1,4 +1,4 @@
-package org.thoth.jeesa.security;
+package org.thoth.jeesa.security.principal;
 
 import java.security.Principal;
 import java.util.Collections;

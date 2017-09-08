@@ -109,15 +109,24 @@ Areas of Research
   * Test URL: http://localhost:8080/13-security-api-wrapping-request-doesnt-work
 
 * **14-security-api-jsf-page-protected-webxml** - Can there be a JSF page that's protected 
-            which is accessible only by a certain application-specific role?  The JSF 
+            which is accessible only by a certain application-specific role?  The JSF page
             is protected by `<security-constraint>` in `web.xml`.  The application uses 
             application-specific roles in `@DeclareRoles`.  The identity-management groups are 
             mapped to application-specific roles in `glassfish-web.xml`.
   * Test URL: http://localhost:8080/14-security-api-jsf-page-protected-webxml
 
+* **15-security-api-jsf-managedbean-protected-webxml** - If my JSF page tries to call 
+            a method on a managed bean which it should not have access to, will the 
+            method call fail? The application uses 
+            application-specific roles in `@DeclareRoles`.  The identity-management groups are 
+            mapped to application-specific roles in `glassfish-web.xml`.
+  * Test URL: http://localhost:8080/15-security-api-jsf-managedbean-protected-webxml
+
 * **XX-one-identitystorehandler**
 
 * **XX-multiple-identitystorehandlers**
+
+pom.xml, package rename, security replace,  index.xhtml question,  principal.xhtml,
 
 Enjoy!
 

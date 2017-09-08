@@ -83,5 +83,6 @@
         <module>12-security-api-ejb-integration</module>
         <module>13-security-api-wrapping-request-doesnt-work</module>
         <module>14-security-api-jsf-page-protected-webxml</module>
+        <module>15-security-api-jsf-managedbean-protected-webxml</module>
     </modules>
 </project>

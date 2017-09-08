@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    template="../WEB-INF/template.xhtml">
+    
+    <ui:define name="page_name">Message</ui:define>
+    
+    <ui:define name="page_content">
+        <h1>Message</h1>
+        <div id="content" class="left_content">
+            <p>
+                This is the same form that's on the home page.  But this page is
+                <code>/public/message.xhtml</code>.  Clicking
+                the <code>Show Message</code> button will post back to 
+                <code>message.xhtml</code> (you can see this if you watch the brower network
+                traffic with something like FireBug).
+            </p>
+            <blockquote>
+                <h:form>
+                    <h:inputText id = "inputName" value = "#{welcomeMessage.text}"></h:inputText>
+                    <h:commandButton value = "Show Message">
+                        <f:ajax execute = "inputName" render = "outputMessage" />
+                    </h:commandButton>
+                    <h2><h:outputText 
+                            id = "outputMessage"
+                            value = "#{welcomeMessage.text != null ? welcomeMessage.message : ''}"/>
+                    </h2>
+                </h:form>
+            </blockquote>
+            
+            <p>
+                <h:link value="&lt;&lt; Back home" outcome="/public/index" />
+            </p>
+        </div>
+    </ui:define>
+        
+</ui:composition>

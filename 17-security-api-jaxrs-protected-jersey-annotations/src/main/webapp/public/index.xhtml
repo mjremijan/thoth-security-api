@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    template="../WEB-INF/template_index.xhtml">
+
+    <ui:define name="page_name">Index</ui:define>
+    
+    <ui:define name="test_goals">
+        <p>
+            Can there be a JAX-RS client call that's protected 
+            which is accessible only by a certain application-specific role?
+            The JAX-RS client 
+            is protected by <code>@RolesAllowed</code> (without the use of standard EJBs).  
+            The application uses 
+            application-specific roles in <code>@DeclareRoles</code>.  The identity-management groups are 
+            mapped to application-specific roles in <code>glassfish-web.xml</code>.
+        </p>
+    </ui:define>
+    
+    <ui:define name="test_results">
+        <p>
+            <b>Yes!  But, without EJBs, proprietory Jersy code is required!</b>
+        </p>
+        <p>
+            Instead of configuring Jersey with the standard JAX-RS classes supported
+            by all Java EE servers, you instead need to use a Jersey-specific
+            class for the configuration: <code>org.glassfish.jersey.server.ResourceConfig</code>.
+            Your application would now look like this; polluted by proprietary code and
+            causing problems or limiting your ability to deploy easily to different EE servers:
+        </p>
+        <blockquote>
+            <p>
+                <code>
+@ApplicationPath("rest")<br/>
+public&nbsp;class&nbsp;ResourceConfig&nbsp;&nbsp;extends&nbsp;org.glassfish.jersey.server.ResourceConfig&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;ResourceConfig()&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super();<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;register(RolesAllowedDynamicFeature.class);<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super.packages(true,&nbsp;"org.thoth.jeesa");<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+}                
+                </code>
+            </p>
+        </blockquote>
+        <p>
+            But it does work!
+        </p>
+        <p>
+            <b>Customer Support REST resource</b>
+        </p>
+        <blockquote>
+            <p>
+                A JAX-RS <code>CustomerSupportResource</code> is created.  It is <b>not</b> an EJB. The 
+                class-level is configured with <code>@Path("customersupport")</code>.  The method-level 
+                is configured with <code>@Path("help")</code>.  The URL looks like this:
+            </p>
+            <blockquote>
+                <p><code>#{request.contextPath}/rest/customersupport/help"</code></p>
+            </blockquote>
+            <p>
+                The method is protected by <code>@RolesAllowed({"CustomerSupportRole"})</code>
+            </p>
+            <p>
+                Because you have the <code>CustomerSupportRole</code>
+                role, you are able to access this REST resource:
+            </p>
+            <blockquote>
+                <p>
+                    <h:outputLink value="#{request.contextPath}/rest/customersupport/help">
+                        Good link: Customer support help REST resource...you have CustomerSupportRole :)
+                    </h:outputLink>
+                </p>
+            </blockquote>
+        </blockquote>
+        <p>
+            <b>Executive REST resource</b>
+        </p>
+        <blockquote>
+            <p>
+                A JAX-RS <code>ExecutiveResource</code> is created.  It is <b>not</b> an EJB. The 
+                class-level is configured with <code>@Path("executive")</code>.  The method-level 
+                is configured with <code>@Path("contract")</code>.  The URL looks like this:
+            </p>
+            <blockquote>
+                <p><code>#{request.contextPath}/rest/executive/contract"</code></p>
+            </blockquote>
+            <p>
+                The method is protected by <code>@RolesAllowed({"ExecutiveRole"})</code>
+            </p>
+            <p>
+                Because you do <b>not</b> have the <code>ExecutiveRole</code>
+                role, access to this REST resource will fail:
+            </p>
+            <blockquote>
+                <p>
+                    <h:outputLink value="#{request.contextPath}/rest/executive/contract">
+                        Bad link: Executive contract REST resource...you do NOT have ExecutiveRole :(
+                    </h:outputLink>
+                </p>
+            </blockquote>
+        </blockquote>
+    </ui:define>
+        
+</ui:composition>

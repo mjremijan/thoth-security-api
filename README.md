@@ -122,11 +122,56 @@ Areas of Research
             mapped to application-specific roles in `glassfish-web.xml`.
   * Test URL: http://localhost:8080/15-security-api-jsf-managedbean-protected-webxml
 
+* **16-security-api-jsf-ajax-protected-webxml** - 
+            Can there be a JSF AJAX call that's protected 
+            which is accessible only by a certain application-specific role?
+            The JSF AJAX call 
+            is protected by `<security-constraint>` in `web.xml`.  The application uses 
+            application-specific roles in `@DeclareRoles`.  The identity-management groups are 
+            mapped to application-specific roles in `glassfish-web.xml`.
+  * Test URL: http://localhost:8080/16-security-api-jsf-ajax-protected-webxml
+
+* **17-security-api-jaxrs-protected-ejb-annotations** - 
+            Can there be a JAX-RS client call that's protected 
+            which is accessible only by a certain application-specific role?
+            The JAX-RS client 
+            is protected by `@RolesAllowed` (without the use of proprietary Jersey code).  
+            The application uses 
+            application-specific roles in `@DeclareRoles`.  The identity-management groups are 
+            mapped to application-specific roles in `glassfish-web.xml`.
+  * Test URL: http://localhost:8080/17-security-api-jaxrs-protected-ejb-annotations
+
+* **17-security-api-jaxrs-protected-jersey-annotations** - 
+            Can there be a JAX-RS client call that's protected 
+            which is accessible only by a certain application-specific role?
+            The JAX-RS client 
+            is protected by `@RolesAllowed` (without the use of standard EJBs).  
+            The application uses 
+            application-specific roles in `@DeclareRoles`.  The identity-management groups are 
+            mapped to application-specific roles in `glassfish-web.xml`.
+  * Test URL: http://localhost:8080/17-security-api-jaxrs-protected-jersey-annotations
+
+* **17-security-api-jaxrs-protected-webxml** - 
+            Can there be a JAX-RS client call that's protected 
+            which is accessible only by a certain application-specific role?
+            The JAX-RS client 
+            is protected by `<security-constraint>` in `web.xml`
+            (without the use of standard EJBs or proprietary Jersey code).  
+            The application uses 
+            application-specific roles in `@DeclareRoles`.  The identity-management groups are 
+            mapped to application-specific roles in `glassfish-web.xml`.
+  * Test URL: http://localhost:8080/17-security-api-jaxrs-protected-webxml
+
 * **XX-one-identitystorehandler**
 
 * **XX-multiple-identitystorehandlers**
 
-pom.xml, package rename, security replace,  index.xhtml question,  principal.xhtml,
+pom.xml
+package rename
+security replace
+index.xhtml question
+principal.xhtml
+template.xhtml
 
 Enjoy!
 

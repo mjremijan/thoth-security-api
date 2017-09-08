@@ -19,3 +19,6 @@
 /13-security-api-wrapping-request-doesnt-work/target/
 /14-security-api-jsf-page-protected-webxml/target/
 /15-security-api-jsf-managedbean-protected-webxml/target/
+/16-security-api-jsf-ajax-protected-webxml/target/
+/17-security-api-jaxrs-protected-ejb-annotations/target/
+/17-security-api-jaxrs-protected-jersey-annotations/target/

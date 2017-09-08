@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    template="../WEB-INF/template_index.xhtml">
+
+    <ui:define name="page_name">Index</ui:define>
+    
+    <ui:define name="test_goals">
+        <p>
+            Can there be a JSF AJAX call that's protected 
+            which is accessible only by a certain application-specific role?
+            The JSF AJAX call 
+            is protected by <code>&lt;security-constraint&gt;</code> in <code>web.xml</code>.  The application uses 
+            application-specific roles in <code>@DeclareRoles</code>.  The identity-management groups are 
+            mapped to application-specific roles in <code>glassfish-web.xml</code>.
+        </p>
+    </ui:define>
+    
+    <ui:define name="test_results">
+        <p>
+            <b>Yes!</b>
+        </p>
+        <p>
+            Protecting an AJAX call is just like protecting any JSF page.  In JSF, the
+            AJAX call goes back to the JSF <b>parent</b> page which loaded the JSF 
+            component. So, if user is able to access the <b>parent</b> page 
+            then the AJAX call will be successful.  Below is a simple "welcome message"
+            AJAX example.  This page is <code>/public/index.xhtml</code>. Clicking
+            the <code>Show Message</code> button will post back to 
+            <code>index.xhtml</code> (you can see this if you watch the brower network
+            traffic with something like FireBug).
+
+        </p>
+        <blockquote>
+            <h:form>
+                <h:inputText id = "inputName" value = "#{welcomeMessage.text}"></h:inputText>
+                <h:commandButton value = "Show Message">
+                    <f:ajax execute = "inputName" render = "outputMessage" />
+                </h:commandButton>
+                <h2><h:outputText 
+                        id = "outputMessage"
+                        value = "#{welcomeMessage.text != null ? welcomeMessage.message : ''}"/>
+                </h2>
+            </h:form>
+        </blockquote>
+
+        <p>
+            To see this in action on another page, click the link below to go to the 
+            <code>public/message.xhtml</code> page.
+        </p>
+        <blockquote>
+            <p>
+                <h:link value="Go to message page" outcome="/public/message" />
+            </p>
+        </blockquote>
+        
+        <p>
+            Server side, you are still protected.  Below is a link to a bad customer support
+            page.  The AJAX call on that page will fail because the server-side code behind
+            the AJAX call attempts to use the <code>ExecutiveContract</code> EJB which
+            you do not have the role to access.  To see this in action, click the link below 
+            to go to the <code>customersupport/bad_support.xhtml</code> page.
+        </p>
+        <blockquote>
+            <p>
+                <h:link value="Go to bad :( customer support page" outcome="/customersupport/bad_support" />
+            </p>
+        </blockquote>
+        
+    </ui:define>
+        
+</ui:composition>

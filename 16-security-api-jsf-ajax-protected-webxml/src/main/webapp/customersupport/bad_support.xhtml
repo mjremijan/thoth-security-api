@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    template="../WEB-INF/template.xhtml">
+    
+    <ui:define name="page_name">Customer Support</ui:define>
+    
+    <ui:define name="page_content">
+        <h1>Bad Support</h1>
+        <div id="content" class="left_content">
+            <p>
+                This is the <code>customersupport/bad_support.xhtml</code> page.  You have
+                the <code>CustomerSupportRole</code> role, so you can see this page.  Below
+                is an AJAX call that will attempt to get executive contract details.  The 
+                AJAX call post back to the <code>bad_support.xhtml</code> page. The post
+                to <code>bad_support.xhtml</code>
+                will be OK because you have the <code>CustomerSupportRole</code> role and
+                can access the page.  However, when the post is handled server-side, it will
+                attempt to use the <code>ExecutiveContract</code> EJB which is protected by the
+                <code>ExecutiveRole</code> role.  Because you do <b>not</b> have
+                the <code>ExecutiveRole</code> role, the AJAX call will error.  You will
+                get a JavaScript alert box with <code>javax.ejb.EJBAccessException</code>.  
+                Click the <code>Find Contract Details</code> button below to try it out.
+            </p>
+            <blockquote>
+                <h:form>
+                    <h:commandButton value = "Find Contract Details will fail with javax.ejb.EJBAccessException :)">
+                        <f:ajax render = "outputMessage" 
+                                listener="#{customerSupportController.findContractDetails}"
+                        />
+                    </h:commandButton>
+                    <h2><h:outputText 
+                            id = "outputMessage"
+                            value = "#{contractDetails.text != null ? contractDetails.message : ''}"/>
+                    </h2>
+                </h:form>
+            </blockquote>
+            
+            <p>
+                <h:link value="&lt;&lt; Back home" outcome="/public/index" />
+            </p>
+        </div>
+    </ui:define>
+        
+</ui:composition>

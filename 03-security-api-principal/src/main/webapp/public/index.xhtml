@@ -7,7 +7,27 @@
     xmlns:f="http://xmlns.jcp.org/jsf/core"
     template="../WEB-INF/template_index.xhtml">
 
-    <ui:define name="page_name">Index</ui:define>
+    <ui:define name="page_references">
+        <p>
+            Chapter 2. JSF web application example.  (n.d.)  
+            Retrieved from
+            <a href="https://docs.jboss.org/webbeans/reference/current/en-US/html/example.html">
+                https://docs.jboss.org/webbeans/reference/current/en-US/html/example.html
+            </a>
+
+        </p>
+        <p>
+            BalusC. (2013, April 9).  How to specify name attribute in h:inputText?.
+            Retrieved from
+            <a href="https://stackoverflow.com/questions/15893876/how-to-specify-name-attribute-in-hinputtext">
+                https://stackoverflow.com/questions/15893876/how-to-specify-name-attribute-in-hinputtext
+            </a>
+        </p>
+    </ui:define>
+
+    <ui:define name="page_name">
+        Index
+    </ui:define>
 
     <ui:define name="test_goals">
         <p>
@@ -22,8 +42,8 @@
             <b>Yes!</b>
         </p>
         <p>
-            Below in the <b>Principal/Role Information</b> section
-            where you can see the <code>Principal</code> name.  Submit
+            Below in the <i>Principal/Role Information</i> section,
+            you can see the <code>Principal</code> name.  Submit
             the form below to change the principal's name.  After submitting
             the form, the page will refresh and you'll see the 
             <code>Principal</code> name update.  It is important to note 
@@ -32,7 +52,7 @@
             a stored query parameter.  That is the actual Java EE server
             <code>Principal</code> object.
         </p>
-        
+
         <h:form  prependId="false">
             <h:panelGrid columns="2">
                 <h:outputLabel for="name">Principal Name:</h:outputLabel>

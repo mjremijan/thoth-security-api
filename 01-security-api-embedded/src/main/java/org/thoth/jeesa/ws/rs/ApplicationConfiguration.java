@@ -1,4 +1,4 @@
-package org.thoth.jeesa.application;
+package org.thoth.jeesa.ws.rs;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

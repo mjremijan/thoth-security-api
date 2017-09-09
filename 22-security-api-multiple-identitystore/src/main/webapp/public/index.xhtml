@@ -9,24 +9,23 @@
 
     <ui:define name="page_references">
         <p>
-            app-custom.  (n.d.).  Retrieved from 
-            <a href="https://github.com/javaee/security-soteria/tree/master/test/app-custom">
-                https://github.com/javaee/security-soteria/tree/master/test/app-custom</a>
-        </p>
-        <p>
-            Java EE Security API Proposed Final Draft.  (2017, July 10).  Retrieved from 
-            <a href="https://www.jcp.org/en/jsr/detail?id=375">
-                https://www.jcp.org/en/jsr/detail?id=375</a>
+            app-multiple-store.  (n.d.).  Retrieved from 
+            <a href="https://github.com/javaee/security-soteria/tree/master/test/app-multiple-store">
+                https://github.com/javaee/security-soteria/tree/master/test/app-multiple-store</a>
         </p>
     </ui:define>
     
-    <ui:define name="page_name">Index</ui:define>
+    <ui:define name="page_name">
+        Index
+    </ui:define>
 
     <ui:define name="test_goals">
         <p>
-            Can I create my own 
-            <code>IdentityStore</code>, <code>Credential</code>, and <code>Principal</code> and have
-            <code>IdentityStoreHandler</code> validate the request?
+            Can I create multiple <code>IdentityStore</code> implementations with one 
+            implementation responsible for authenticating the user and the other
+            implementations responsible for getting the roles for the user? The application uses 
+            application-specific roles in <code>@DeclareRoles</code>.  The identity-management groups are 
+            mapped to application-specific roles in <code>glassfish-web.xml</code>.
         </p>
     </ui:define>
 
@@ -35,41 +34,83 @@
             <b>Yes!</b>
         </p>
         <p>
-            In this example, <code>TestHttpAuthenticationMechanism</code> uses...
-        </p>
-        <blockquote>
-            <p><code>@Inject</code><br/>
-                <code>private IdentityStoreHandler identityStoreHandler;</code>
-            </p>
-        </blockquote>
-        <p>
-            ...to inject an <code>IdentityStoreHandler</code>.  The 
-            <code>IdentityStoreHandler</code> is a Java EE Security API
-            class designed to help you get principal and role information.
+            This is actually pretty cool!
         </p>
         <p>
-            The <code>IdentityStoreHandler</code> will then find and use
-            <code>TestCredential</code>, <code>TestIdentityStore</code>, 
-            and <code>TestCallerPrincipal</code>.  These are all
-            classes that extend the EE Security API and allow this
-            project to customize how it will validate the request
-            and ultimately build a principal.
+            In this example, I first created <code>TestAuthenticationIdentityStore</code>. This 
+            class is responsible for validating the request and returning a 
+            <code>CredentialValidationResult</code>. Critical
+            things to know about this class are:
+        </p>
+        <ol class="multiple-identitystore">
+            <li>
+                <code>@ApplicationScoped</code>                
+            </li>
+            <li>
+                <code>implements IdentityStore</code>
+            </li>
+            <li>
+                This is an important one as it tells EE Security what this <code>IdentityStore</code>
+                is responsible for: validating the request.
+                <br/><code>@Override<br/>
+                public Set&lt;ValidationType&gt; validationTypes() {<br/>
+                    return new HashSet&lt;&gt;(asList(VALIDATE));<br/>
+                }</code>
+            </li>
+            <li>
+                This validates the request.  You <b>must</b> match this method
+                signature exactly - i.e. you must use <code>Credential</code> as
+                the parameter type.  Do <b>not</b> use your own concrete implementation type!
+                If you do, bad things may happen trying to re-deploy the application.
+                <br/><code>@Override<br/>
+                public CredentialValidationResult validate(Credential credential) {...}</code>
+            </li>
+        </ol>
+        
+        <p>
+            Next, I created <code>TestGroupsIdentityStoreA</code>, <code>TestGroupsIdentityStoreB</code> 
+            and <code>TestGroupsIdentityStoreC</code>. These are responsible for returning the
+            groups/roles for the user.  Each one returns a specific group/role.  Critical
+            things to know about these classes are:
+        </p>
+        <ol class="multiple-identitystore">
+            <li>
+                <code>@ApplicationScoped</code>
+            </li>
+            <li>
+                <code>implements IdentityStore</code>
+            </li>
+            <li>
+                This is an important one as it tells EE Security what this <code>IdentityStore</code> 
+                is responsible for: providing groups.
+                <br/><code>@Override<br/>
+                public Set&lt;ValidationType&gt; validationTypes() {<br/>
+                    return new HashSet&lt;&gt;(asList(PROVIDE_GROUPS));<br/>
+                }</code>
+            </li>
+            <li>
+                This provides a <code>Set</code> of groups.  You <b>must</b> match this method
+                signature exactly - i.e. you must use <code>CredentialValidationResult</code> as
+                the parameter type.  Do <b>not</b> use your own concrete implementation type!
+                <br/><code>@Override<br/>
+                public Set&lt;String&gt; getCallerGroups(CredentialValidationResult validationResult) {...}</code>
+            </li>
+        </ol>
+        
+        <p>
+            Each one of the test group identity store implementations returns a different set
+            of groups.  EE Security aggregates them all together.            
         </p>
         <p>
-            Below you can see a snipping from the log file (keep reloading
-            this page to see the log file update) which shows
-            <code>TestHttpAuthenticationMechanism</code> running.  A 
-            String representation of the <code>IdentityStoreHandler</code> 
-            is printed to show it's being injected.
+            <code>TestGroupsIdentityStoreA</code> <b>returns</b> <code>GROUP_CUSTOMER_SUPPORTS</code>
+            <br/>
+            <code>TestGroupsIdentityStoreB</code> <b>returns</b> <code>GROUP_EXECUTIVES</code>
+            <br/>
+            <code>TestGroupsIdentityStoreC</code> <b>returns</b> <code>GROUP_SALARY_EMPLOYEES</code>
         </p>
-        <blockquote>
-            <pre style="font-family:monospace; overflow:scroll; border: 1px solid black;">#{testHttpAuthenticationMechanism.buffer}</pre>
-        </blockquote>
         <p>
-            Finally, look at the <i>Principal/Role Information</i> section
-            below.  You will see the name of the principal was clearly 
-            created by a combination of <code>TestCredential</code>
-            and <code>TestIdentityStore</code>, and <code>TestCallerPrincipal</code>.
+            If you look at the <i>Principal/Role Information</i> section below, you will
+            see that your user has all of these roles.
         </p>
     </ui:define>
 

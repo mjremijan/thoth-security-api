@@ -19,13 +19,13 @@ public class TestGroupsIdentityStoreB implements IdentityStore {
     private static final Logger log = Logger.getLogger(TestGroupsIdentityStoreB.class);
 
     @Override
-    public Set<String> getCallerGroups(CredentialValidationResult validationResult) {
-        log.info("ENTER #getCallerGroups()");
-        return new HashSet<>(asList("GROUP_EXECUTIVES"));
+    public Set<ValidationType> validationTypes() {
+        return new HashSet<>(asList(PROVIDE_GROUPS));
     }
 
     @Override
-    public Set<ValidationType> validationTypes() {
-        return new HashSet<>(asList(PROVIDE_GROUPS));
+    public Set<String> getCallerGroups(CredentialValidationResult validationResult) {
+        log.info("ENTER #getCallerGroups()");
+        return new HashSet<>(asList("GROUP_EXECUTIVES"));
     }
 }

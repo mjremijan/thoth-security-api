@@ -8,14 +8,12 @@ import javax.security.enterprise.credential.Credential;
  */
 public class TestCredential implements Credential {
     protected String id;
-    protected String caller;
 
     public TestCredential(String id) {
         this.id = id;
-        this.caller = this.id+"/TestCredential";
     }
 
     public String getCaller() {
-        return caller;
+        return this.id;
     }
 }

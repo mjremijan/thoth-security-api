@@ -186,7 +186,12 @@ How do you get the Principle from each major technology?
         `IdentityStoreHandler` validate the request?
     * Test URL: http://localhost:8080/21-security-api-identitystorehandler
 
-* **XX-multiple-identitystores**
+* **22-security-api-multiple-identitystore** - Can I create multiple `IdentityStore` implementations with one 
+            implementation responsible for authenticating the user and the other
+            implementations responsible for getting the roles for the user? The application uses 
+            application-specific roles in `@DeclareRoles`.  The identity-management groups are 
+            mapped to application-specific roles in `glassfish-web.xml`.
+    * Test URL: http://localhost:8080/21-security-api-multiple-identitystore
 
 pom.xml
 package rename

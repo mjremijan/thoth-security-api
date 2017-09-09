@@ -21,16 +21,16 @@ public class TestAuthenticationIdentityStore implements IdentityStore {
     private static final Logger log = Logger.getLogger(TestAuthenticationIdentityStore.class);
 
     @Override
+    public Set<ValidationType> validationTypes() {
+        return new HashSet<>(asList(VALIDATE));
+    }
+    
+    @Override
     public CredentialValidationResult validate(Credential credential) {
         log.info("ENTER #validate(Credential)");
 
         return new CredentialValidationResult(
             ((TestCredential) credential).getCaller()
         );
-    }
-
-    @Override
-    public Set<ValidationType> validationTypes() {
-        return new HashSet<>(asList(VALIDATE));
     }
 }

@@ -31,3 +31,7 @@ a:link:hover, a:visited:hover  {
   font-weight : bold;
   text-decoration : underline;
 }
+
+ol.multiple-identitystore li {
+    margin-bottom: 10px;
+}

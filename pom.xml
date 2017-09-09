@@ -91,5 +91,6 @@
         <module>18-security-api-contexts-in-each-major-technology</module>
         <module>20-security-api-customprincipal-web</module>
         <module>21-security-api-identitystorehandler</module>
+        <module>22-security-api-multiple-identitystore</module>
     </modules>
 </project>

@@ -21,11 +21,4 @@ public class ApplicationController {
             servletContext.getAttribute("maven.project.artifactId")
         );
     }
-
-    public String getHelloWorldTitle() {
-        String title = getTitle();
-        title = title.replace("-goodneighbor", "-helloworld");
-        return title;
-    }
-
 }

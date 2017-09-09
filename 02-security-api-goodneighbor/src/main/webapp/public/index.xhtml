@@ -7,11 +7,22 @@
     xmlns:f="http://xmlns.jcp.org/jsf/core"
     template="../WEB-INF/template_index.xhtml">
 
-    <ui:define name="page_name">Index</ui:define>
+    <ui:define name="page_references">
+        <p>
+        app-securitycontext-customprincipal.  (n.d.).  Retrieved from
+        <a href="https://github.com/javaee/security-soteria/tree/116eb9326eca72e8c0f6665221b7b9c6a71f3b98/test/app-securitycontext-customprincipal">
+                 https://github.com/javaee/security-soteria/tree/116eb9326eca72e8c0f6665221b7b9c6a71f3b98/test/app-securitycontext-customprincipal</a>
+    </p>
+    </ui:define>
+    
+    
+    <ui:define name="page_name">
+        Index
+    </ui:define>
     
     <ui:define name="test_goals">
         <p>
-            When the Security API is being used by a WAR, 
+            When EE Security is being used by a WAR, 
             will it protect only the WAR it's in or every WAR 
             deployed to the server?
         </p>
@@ -26,10 +37,10 @@
             the <code>AuthConfigProvider</code> with the <code>AuthConfigFactory</code>,
             you can protect just the WAR the JASPIC code is in, every WAR
             deployed to the server, or one of the WARs deployed to the server.
-            The Security API, however, doesn't work this way.
+            EE Security, however, doesn't work this way.
         </p>
         <p>
-            By default, when the Security API is used by a WAR, the Security API
+            By default, when EE Security is used by a WAR, EE Security
             protects only that WAR.  Unlike
             JASPIC, there is no way (as of this writing August, 2017) to configure the 
             Security API to protect other other WARs on the server.            

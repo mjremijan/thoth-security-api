@@ -193,12 +193,5 @@ How do you get the Principle from each major technology?
             mapped to application-specific roles in `glassfish-web.xml`.
     * Test URL: http://localhost:8080/21-security-api-multiple-identitystore
 
-pom.xml
-package rename
-security replace
-index.xhtml question
-principal.xhtml
-template.xhtml
-
 Enjoy!
 

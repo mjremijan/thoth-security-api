@@ -30,8 +30,8 @@
 
     <ui:define name="test_goals">
         <p>
-            If request 'A' sets the <code>Principal</code>, can I make requests 'B', 'C', and
-            'D' and maintain that <code>Principal</code> across the requests?
+            If request 'A' sets the <code>Principal</code>, can I make requests 'B' and 'C'
+            and maintain that <code>Principal</code> across the requests?
         </p>
     </ui:define>
 
@@ -40,7 +40,7 @@
             <b>Yes!</b>
         </p>
         <p>
-            In the EE 8 Security API, the <code>@AutoApplySession</code> annotation on the
+            In EE Security, the <code>@AutoApplySession</code> annotation on the
             <code>HttpAuthenticationMechanism</code> is what does this for you.  Once a
             <code>Principal</code> is established, <code>@AutoApplySession</code> prevents
             <code>HttpAuthenticationMechanism#validateRequest()</code> from being called

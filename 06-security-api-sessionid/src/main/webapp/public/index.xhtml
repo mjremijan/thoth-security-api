@@ -7,7 +7,14 @@
     xmlns:f="http://xmlns.jcp.org/jsf/core"
     template="../WEB-INF/template_index.xhtml">
 
-    <ui:define name="page_name">Index</ui:define>
+    <ui:define name="page_references">
+        <p>
+        </p>
+    </ui:define>
+    
+    <ui:define name="page_name">
+        Index
+    </ui:define>
     
     <ui:define name="test_goals">
         <p>
@@ -22,10 +29,10 @@
         <p>
             This is not a problem.  On each request to this application, 
             the <code>TestHttpAuthenticationMechanism#validateRequest()</code>
-            method is executed. You can see in the <i>Log file results</i>
+            method is executed. You can see in the Log file results below
             that that value logged for JSESSIONID by
             <code>TestHttpAuthenticationMechanism#validateRequest()</code>
-            is the same as what's in the <b>Session Information</b> section below.
+            is the same as what's in the <i>Session Information</i> section below.
         </p>
         <p>
             Log file results

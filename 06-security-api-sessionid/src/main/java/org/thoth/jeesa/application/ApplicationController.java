@@ -15,11 +15,10 @@ public class ApplicationController {
         servletContext = (ServletContext) FacesContext
             .getCurrentInstance().getExternalContext().getContext();
     }
-    
+
     public String getTitle() {
         return String.valueOf(
             servletContext.getAttribute("maven.project.artifactId")
         );
     }
-
 }

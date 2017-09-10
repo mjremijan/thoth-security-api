@@ -12,21 +12,21 @@ import javax.inject.Named;
 @DeclareRoles({"ExecutiveRole", "CustomerSupportRole", "SalaryEmployeeRole", "TryMeRole"})
 public class DeclareRolesController {
 
-    protected List<RoleMapping> roleMappings;
+    protected List<DeclareRolesMapping> roleMappings;
 
     @PostConstruct
     protected void postConstruct() {
         roleMappings
             = new LinkedList<>();
-        roleMappings.add(new RoleMapping("ExecutiveRole", "GROUP_EXECUTIVES"));
-        roleMappings.add(new RoleMapping("CustomerSupportRole", "GROUP_CUSTOMER_SUPPORTS"));
-        roleMappings.add(new RoleMapping("SalaryEmployeeRole", "GROUP_SALARY_EMPLOYEES"));
-        roleMappings.add(new RoleMapping("TryMeRole", "group_not_in_glassfish-web_xml"));
-        roleMappings.add(new RoleMapping("NotInWebXmlRole", "GROUP_TRY_ME"));
+        roleMappings.add(new DeclareRolesMapping("ExecutiveRole", "GROUP_EXECUTIVES"));
+        roleMappings.add(new DeclareRolesMapping("CustomerSupportRole", "GROUP_CUSTOMER_SUPPORTS"));
+        roleMappings.add(new DeclareRolesMapping("SalaryEmployeeRole", "GROUP_SALARY_EMPLOYEES"));
+        roleMappings.add(new DeclareRolesMapping("TryMeRole", "group_not_in_glassfish-web_xml"));
+        roleMappings.add(new DeclareRolesMapping("NotInWebXmlRole", "GROUP_TRY_ME"));
 
     }
 
-    public List<RoleMapping> getRoleMappings() {
+    public List<DeclareRolesMapping> getRoleMappings() {
         return roleMappings;
     }
 }

@@ -3,7 +3,6 @@ package org.thoth.jeesa.security.principal;
 import java.security.Principal;
 import javax.enterprise.context.ApplicationScoped;
 import javax.faces.context.FacesContext;
-import javax.inject.Inject;
 import javax.inject.Named;
 import org.apache.log4j.Logger;
 
@@ -12,9 +11,6 @@ import org.apache.log4j.Logger;
 public class PrincipalController {
 
     private static final Logger log = Logger.getLogger(PrincipalController.class);
-
-    @Inject
-    protected PrincipalInput input;
 
     public PrincipalController() {
     }
@@ -36,8 +32,4 @@ public class PrincipalController {
         ;
     }
 
-    public void go() {
-        log.info("ENTER #go()");
-        log.info(String.format("PrincipalInput = %s", input));
-    }
 }

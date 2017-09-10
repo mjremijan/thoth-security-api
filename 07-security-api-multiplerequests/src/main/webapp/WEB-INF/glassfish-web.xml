@@ -16,10 +16,5 @@
         <role-name>SalaryEmployeeRole</role-name>
         <group-name>GROUP_SALARY_EMPLOYEES</group-name>
     </security-role-mapping>
-    
-    <security-role-mapping>
-        <role-name>NotInWebXmlRole</role-name>
-        <group-name>GROUP_TRY_ME</group-name>
-    </security-role-mapping>
-    
+
 </glassfish-web-app>

@@ -16,10 +16,9 @@ public class LogoutController {
     public LogoutController() {
     }
 
-
     public void logout() throws IOException {
         log.info("ENTER #logout()");
-         ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
         ec.invalidateSession();
         ec.redirect("index.xhtml");
     }

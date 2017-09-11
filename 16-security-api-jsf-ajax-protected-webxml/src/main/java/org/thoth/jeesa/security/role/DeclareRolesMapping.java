@@ -2,11 +2,11 @@ package org.thoth.jeesa.security.role;
 
 import java.util.StringJoiner;
 
-public class RoleMapping {
+public class DeclareRolesMapping {
     protected String applicationSpecificRole;
     protected String identityManagementGroup;
 
-    public RoleMapping(String applicationSpecificRole, String identityManagementGroup) {
+    public DeclareRolesMapping(String applicationSpecificRole, String identityManagementGroup) {
         this.applicationSpecificRole = applicationSpecificRole;
         this.identityManagementGroup = identityManagementGroup;
     }

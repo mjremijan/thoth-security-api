@@ -3,6 +3,7 @@ package org.thoth.jeesa.welcome;
 import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import org.apache.commons.lang3.StringUtils;
 
 @Named(value = "welcomeMessage")
 @SessionScoped
@@ -19,10 +20,7 @@ public class WelcomeMessage implements Serializable {
     }
 
     public void setText(String text) {
-        this.text = text;
-        if (this.text != null && this.text.isEmpty()) {
-            this.text = null;
-        }
+        this.text = StringUtils.trimToNull(text);
     }
 
     public String getMessage() {

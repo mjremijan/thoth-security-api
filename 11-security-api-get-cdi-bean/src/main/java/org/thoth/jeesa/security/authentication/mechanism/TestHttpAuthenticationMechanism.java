@@ -60,14 +60,19 @@ public class TestHttpAuthenticationMechanism implements HttpAuthenticationMechan
         writer.getBuffer().setLength(0);
         log.info(String.format("ENTER #validateRequest()"));
 
-        // Delegate the {credentials in -> identity data out} function to
-        // the Identity Store
-        log.info(String.format("IdentityStoreHandler = %s", identityStoreHandler));
+
         try {
+            log.info("Create new TestCredential for IdentityStoreHandler to validate");
+            TestCredential testCredential
+                = new TestCredential("security-api-user");
+            log.info(String.format("testCredential = %s", testCredential));
+
+            log.info("Pass TestCredenttial to IdentityStoreHandler");
+            log.info(String.format("IdentityStoreHandler = %s", identityStoreHandler));
             CredentialValidationResult result = identityStoreHandler.validate(
                 new TestCredential("security-api-user"));
 
-            log.info(String.format("CredentialValidationResult = %s", result));
+            log.info(String.format("Got CredentialValidationResult = %s", result));
             if (result.getStatus() == VALID) {
                 // Communicate the details of the authenticated user to the
                 // container. In many cases the underlying handler will just store the details

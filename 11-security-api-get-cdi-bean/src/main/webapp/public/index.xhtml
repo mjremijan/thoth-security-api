@@ -7,7 +7,22 @@
     xmlns:f="http://xmlns.jcp.org/jsf/core"
     template="../WEB-INF/template_index.xhtml">
 
-    <ui:define name="page_name">Index</ui:define>
+    <ui:define name="page_references">
+        <p>
+            app-custom.  (n.d.).  Retrieved from 
+            <a href="https://github.com/javaee/security-soteria/tree/master/test/app-custom">
+                     https://github.com/javaee/security-soteria/tree/master/test/app-custom</a>
+        </p>
+        <p>
+            Java EE Security API Proposed Final Draft.  (2017, July 10).  Retrieved from 
+            <a href="https://www.jcp.org/en/jsr/detail?id=375">
+                     https://www.jcp.org/en/jsr/detail?id=375</a>
+        </p>
+    </ui:define>
+    
+    <ui:define name="page_name">
+        Index
+    </ui:define>
 
     <ui:define name="test_goals">
         <p>
@@ -24,12 +39,13 @@
             <b>Yes!</b>
         </p>
         <p>
-            Java EE Security API is a 1<sup>st</sup> class CDI citizen.  So
+            EE Security is a 1<sup>st</sup> class CDI citizen.  So
             CDI can definately be used.
         </p>
         
         <p>
-            In this example, <code>TestHttpAuthenticationMechanism</code> uses...
+            EE Security defines an <code>IdentityStore</code> just for this 
+            purpose.  In this example, <code>TestHttpAuthenticationMechanism</code> uses...
         </p>
         
         <blockquote>
@@ -40,8 +56,13 @@
         
         <p>
             ...to inject an <code>IdentityStoreHandler</code>.  The 
-            <code>IdentityStoreHandler</code> is a Java EE Security API
-            class designed to help you get principal and role information.
+            <code>IdentityStoreHandler</code> is an EE Security
+            class designed to help you validate principal and 
+            get the role information.  <code>IdentityStoreHandler</code>
+            delegates this job to the <code>IdentityStore</code>
+            implementations, and you may have more than 1 implementation
+            to do different things (like contact different sources to
+            get roles).
         </p>
         
         <p>

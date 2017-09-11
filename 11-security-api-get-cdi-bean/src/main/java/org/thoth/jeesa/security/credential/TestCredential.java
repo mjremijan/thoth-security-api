@@ -1,5 +1,6 @@
 package org.thoth.jeesa.security.credential;
 
+import java.util.StringJoiner;
 import javax.security.enterprise.credential.Credential;
 
 /**
@@ -20,5 +21,13 @@ public class TestCredential implements Credential {
 
     public boolean compareTo(String caller) {
         return this.caller.equals(caller);
+    }
+
+    @Override
+    public String toString() {
+        StringJoiner joiner
+            = new StringJoiner(",", "{", "}");
+        joiner.add(String.format("\"caller\"=\"%s\"", getCaller()));
+        return joiner.toString();
     }
 }

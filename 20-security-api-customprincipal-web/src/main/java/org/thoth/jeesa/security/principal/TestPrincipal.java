@@ -4,17 +4,12 @@ import java.security.Principal;
 import java.util.Collections;
 import java.util.Set;
 
-/**
- *
- * @author Arjan Tijms
- *
- */
-public class MyPrincipal implements Principal {
+public class TestPrincipal implements Principal {
 
     protected String name;
     protected Set<String> roles;
 
-    public MyPrincipal(String name, Set<String> roles) {
+    public TestPrincipal(String name, Set<String> roles) {
         this.name = name;
         this.roles = Collections.unmodifiableSet(roles);
     }

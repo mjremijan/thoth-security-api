@@ -13,7 +13,7 @@ import javax.security.enterprise.authentication.mechanism.http.HttpMessageContex
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
-import org.thoth.jeesa.security.principal.MyPrincipal;
+import org.thoth.jeesa.security.principal.TestPrincipal;
 
 @ApplicationScoped
 @Named(value = "testHttpAuthenticationMechanism")
@@ -35,26 +35,22 @@ public class TestHttpAuthenticationMechanism implements HttpAuthenticationMechan
     throws AuthenticationException {
         log.info(String.format("ENTER #validateRequest()"));
 
-        // Principal name
-        String name = "security-api-user";
-        log.info(String.format("PRINCIPAL name = \"%s\"", name));
+        String name
+            = "security-api-user";
+        log.info(String.format("PARAMETER name = \"%s\"", name));
 
-        // Principal Identity Management Groups
-        HashSet<String> set = new HashSet<>(
-            Arrays.asList("GROUP_CUSTOMER_SUPPORTS,GROUP_SALARY_EMPLOYEES".split(","))
-        );
-        log.info(String.format("PRINCIPAL identityManagementGroups = \"%s\"", set));
+        HashSet<String> set
+            = new HashSet<>(Arrays.asList("GROUP_CUSTOMER_SUPPORTS,GROUP_SALARY_EMPLOYEES".split(",")));
+        log.info(String.format("PARAMETER identityManagementGroups = \"%s\"", set));
 
-        // MyPrincipal
-        MyPrincipal myPrincipal
-            = new MyPrincipal(name, set);
-        log.info(String.format("PRINCIPAL myPrincipal = \"%s\"", myPrincipal));
+        // TestPrincipal
+        TestPrincipal testPrincipal
+            = new TestPrincipal(name, set);
+        log.info(String.format("PRINCIPAL testPrincipal = \"%s\"", testPrincipal));
 
-        // Authentication status
         AuthenticationStatus status
-            = httpMessageContext.notifyContainerAboutLogin(myPrincipal, set);
+            = httpMessageContext.notifyContainerAboutLogin(testPrincipal, set);
 
         return status;
     }
-
 }

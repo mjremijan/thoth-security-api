@@ -7,11 +7,18 @@
     xmlns:f="http://xmlns.jcp.org/jsf/core"
     template="../WEB-INF/template_index.xhtml">
 
-    <ui:define name="page_name">Index</ui:define>
-
+    <ui:define name="page_references">
+        <p>
+        </p>
+    </ui:define>
+    
+    <ui:define name="page_name">
+        Index
+    </ui:define>
+    
     <ui:define name="test_goals">
         <p>
-            If I have an EJB which is protected by @RolesAllowed,
+            If I have an EJB which is protected by <code>@RolesAllowed</code>,
             will an EJB method call fail if I don't have that role?
             Will an EJB method call succeed if I do have that role?
         </p>

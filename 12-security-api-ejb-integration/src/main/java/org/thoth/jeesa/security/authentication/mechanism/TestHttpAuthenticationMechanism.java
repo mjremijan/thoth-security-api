@@ -34,21 +34,17 @@ public class TestHttpAuthenticationMechanism implements HttpAuthenticationMechan
     throws AuthenticationException {
         log.info(String.format("ENTER #validateRequest()"));
 
-        // Principal name
-        String name = "security-api-user";
-        log.info(String.format("PRINCIPAL name = \"%s\"", name));
+        String name
+            = "security-api-user";
+        log.info(String.format("PARAMETER name = \"%s\"", name));
 
-        // Principal Identity Management Groups
-        HashSet<String> set = new HashSet<>(
-            Arrays.asList("GROUP_CUSTOMER_SUPPORTS,GROUP_SALARY_EMPLOYEES".split(","))
-        );
-        log.info(String.format("PRINCIPAL identityManagementGroups = \"%s\"", set));
+        HashSet<String> set
+            = new HashSet<>(Arrays.asList("GROUP_CUSTOMER_SUPPORTS,GROUP_SALARY_EMPLOYEES".split(",")));
+        log.info(String.format("PARAMETER identityManagementGroups = \"%s\"", set));
 
-        // Authentication status
         AuthenticationStatus status
             = httpMessageContext.notifyContainerAboutLogin(name, set);
 
         return status;
     }
-
 }

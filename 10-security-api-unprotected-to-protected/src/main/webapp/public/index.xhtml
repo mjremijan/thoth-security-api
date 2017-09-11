@@ -7,7 +7,17 @@
     xmlns:f="http://xmlns.jcp.org/jsf/core"
     template="../WEB-INF/template_index.xhtml">
 
-    <ui:define name="page_name">Index</ui:define>
+    <ui:define name="page_references">
+        <p>
+            Java EE 5 Tutorial.  (n.d.).  Retrieved from 
+            <a href="https://docs.oracle.com/cd/E19575-01/819-3669/bncbk/index.html">
+                https://docs.oracle.com/cd/E19575-01/819-3669/bncbk/index.html</a>
+        </p>
+    </ui:define>
+
+    <ui:define name="page_name">
+        Index
+    </ui:define>
 
     <ui:define name="test_goals">
         <p>
@@ -39,19 +49,19 @@
         </blockquote>
 
         <p>
-            This link is to the <code>AboutUsServlet</code>.  It has no security constraints so is accessible
+            The following link is to the <code>AboutUsServlet</code>.  It has no security constraints so is accessible
             to everyone.  Internally, <code>AboutUsServlet</code> does a 
             <code>RequestDispatcher#include()</code> to the <code>ExecutiveServlet</code>, which does
             have security constraints and is protected by <code>ExecutiveRole</code>.  However,
             the server-side <code>RequestDispatcher#include()</code> to the <code>ExecutiveServlet</code>
-            is not denied so you will see it's response.
+            is not denied so you will see its response.
         </p>
         <p>
             <h:outputLink value="#{request.contextPath}/aboutus/servlet">
                 Link to AboutUsServlet is allowed to everyone, and can include ExecutiveServlet...
             </h:outputLink>
         </p>
-        
+
         <p>
             However, If you try to link directly to the <code>ExecutiveServlet</code>, 
             you will be forbidden access.

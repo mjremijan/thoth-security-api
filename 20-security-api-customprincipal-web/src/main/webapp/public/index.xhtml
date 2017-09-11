@@ -17,13 +17,13 @@
     
     <ui:define name="test_goals">
         <p>
-            Can I create my own custom <code>MyPrincipal</code> object?
-            The ideas is the custom <code>MyPrincipal</code> object can contain more information
+            Can I create my own custom <code>TestPrincipal</code> object?
+            The ideas is the custom <code>TestPrincipal</code> object can contain more information
             about the user whose logged in than a normal `Principal` object.  In addition,
-            can the <code>MyPrincipal#toString()</code> method be 
+            can the <code>TestPrincipal#toString()</code> method be 
             overloaded to return a JSON representation of the principal data?  This way,
             as features are developed, code doesn't need to typecast and be 
-            coupled to the <code>MyPrincipal</code> object.  Instead, features can use the 
+            coupled to the <code>TestPrincipal</code> object.  Instead, features can use the 
             JSON representation to build their own object to use internally.
         </p>
     </ui:define>
@@ -36,13 +36,13 @@
             Second, look at the <b>Principal/Role Information</b> section below :)
         </p>
         <p>
-            For this test, I did an override of the <code>MyPrincipal#toString()</code>
+            For this test, I did an override of the <code>TestPrincipal#toString()</code>
             method to return a JSON representation of the username and the list
             of roles.  The advantage of doing it like this is through polymorphism the 
-            application does not need to know the <code>MyPrincipal</code> object
+            application does not need to know the <code>TestPrincipal</code> object
             exists or have to include it in the project dependencies for typecasting.
             If a project wants to get a list of the roles, the project can call
-            the <code>MyPrincipal#toString()</code> and parse the JSON in any
+            the <code>TestPrincipal#toString()</code> and parse the JSON in any
             way it likes.  This drastically reduces coupling to the 
             security implementation but gets around some of the shortcomings of the
             <code>Principal</code> interface.

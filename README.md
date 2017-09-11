@@ -171,13 +171,13 @@ How do you get the Principle from each major technology?
   * JAX-RS
   * Test URL: http://localhost:8080/18-security-api-contexts-in-each-major-technology
 
-* **20-security-api-customprincipal-web** - Can I create my own custom `MyPrincipal` object?
-            The ideas is the custom `MyPrincipal` object can contain more information
+* **20-security-api-customprincipal-web** - Can I create my own custom `TestPrincipal` object?
+            The ideas is the custom `TestPrincipal` object can contain more information
             about the user whose logged in than a normal `Principal` object.  In addition,
-            can the `MyPrincipal#toString()` method be 
+            can the `TestPrincipal#toString()` method be 
             overloaded to return a JSON representation of the principal data?  This way,
             as features are developed, code doesn't need to typecast and be 
-            coupled to the `MyPrincipal` object.  Instead, features can use the 
+            coupled to the `TestPrincipal` object.  Instead, features can use the 
             JSON representation to build their own object to use internally.
   * Test URL: http://localhost:8080/20-security-api-customprincipal-web
 

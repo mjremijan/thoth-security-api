@@ -77,7 +77,6 @@
         <module>08-security-api-servlet-protected-webxml</module>
         <module>08-security-api-servlet-protected-annotations</module>
         <module>09-security-api-jsp-protected-annotations</module>
-        <module>09-security-api-jsp-protected-webxml</module>
         <module>10-security-api-unprotected-to-protected</module>
         <module>11-security-api-get-cdi-bean</module>
         <module>12-security-api-ejb-integration</module>

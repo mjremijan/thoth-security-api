@@ -10,6 +10,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <glassfish.5.home>C:/Applications/Glassfish/glassfish5</glassfish.5.home>
+        <glassfish.5.domains>${glassfish.5.home}/glassfish/domains</glassfish.5.domains>
+        <glassfish.5.domain.name>domain1</glassfish.5.domain.name>
     </properties>
     <dependencies>
         <dependency>
@@ -60,36 +63,35 @@
                     <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
                 </configuration>
             </plugin>
+            
+            
+            <plugin>
+                <groupId>org.codehaus.cargo</groupId>
+                <artifactId>cargo-maven2-plugin</artifactId>
+                <configuration>                    
+                    <container>
+                        <containerId>glassfish4x</containerId>
+                        <type>installed</type>
+                        <!-- Path to directory where glassfish is installed -->
+                        <home>${glassfish.5.home}</home>
+                    </container>
+                    <configuration>
+                        <type>existing</type>
+                        <!-- Path to domains directory -->
+                        <home>${glassfish.5.domains}</home>
+                        <properties>
+                            <!-- Domain name where application will be deployed. -->
+                            <cargo.glassfish.domain.name>${glassfish.5.domain.name}</cargo.glassfish.domain.name>
+                            <!-- Glassfish user to authenticate 
+                            <cargo.remote.username>${glassfish.5.domain.username}</cargo.remote.username> -->
+                            <!-- Glassfish password to authenticate 
+                            <cargo.remote.password>${glassfish.5.domain.password}</cargo.remote.password> -->
+                        </properties>
+                    </configuration>
+                </configuration>
+            </plugin>
         </plugins>
         
     </build>
-    <modules>
-        <module>01-security-api-embedded</module>
-        <module>02-security-api-goodneighbor</module>
-        <module>02-security-api-helloworld</module>
-        <module>03-security-api-principal</module>
-        <module>04-security-api-isuserinrole-webxml</module>
-        <module>04-security-api-isuserinrole-glassfishwebxml</module>
-        <module>05-security-api-isuserinrole-declareroles</module>
-        <module>05-security-api-isuserinrole-glassfishwebxml</module>
-        <module>06-security-api-sessionid</module>
-        <module>07-security-api-multiplerequests</module>
-        <module>08-security-api-servlet-protected-webxml</module>
-        <module>08-security-api-servlet-protected-annotations</module>
-        <module>09-security-api-jsp-protected-annotations</module>
-        <module>10-security-api-unprotected-to-protected</module>
-        <module>11-security-api-get-cdi-bean</module>
-        <module>12-security-api-ejb-integration</module>
-        <module>13-security-api-wrapping-request-doesnt-work</module>
-        <module>14-security-api-jsf-page-protected-webxml</module>
-        <module>15-security-api-jsf-managedbean-protected-webxml</module>
-        <module>16-security-api-jsf-ajax-protected-webxml</module>
-        <module>17-security-api-jaxrs-protected-ejb-annotations</module>
-        <module>17-security-api-jaxrs-protected-jersey-annotations</module>
-        <module>17-security-api-jaxrs-protected-webxml</module>
-        <module>18-security-api-contexts-in-each-major-technology</module>
-        <module>20-security-api-customprincipal-web</module>
-        <module>21-security-api-identitystorehandler</module>
-        <module>22-security-api-multiple-identitystore</module>
-    </modules>
+    <modules></modules>
 </project>

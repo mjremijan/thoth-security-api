@@ -10,7 +10,6 @@ import javax.inject.Named;
 
 @ApplicationScoped
 @Named(value = "declareRolesController")
-@DeclareRoles(value = {"ExecutiveRole", "CustomerSupportRole", "SalaryEmployeeRole"})
 public class DeclareRolesController {
 
     protected List<String> all;
@@ -19,7 +18,7 @@ public class DeclareRolesController {
     protected void postConstruct() {
         all = new ArrayList<>();
         all.addAll(Arrays.asList(
-            DeclareRolesController.class.getAnnotation(DeclareRoles.class).value())
+            DeclareRolesServlet.class.getAnnotation(DeclareRoles.class).value())
         );
         all.add("NOT_IN_DECLAREROLES_ROLE");
 
